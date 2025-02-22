@@ -136,7 +136,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="C:\web2\code\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="C:\web2\code\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ViduHelloWorld" path="/ViduHelloWorld" reloadable="true" source="org.eclipse.jst.jee.server:ViduHelloWorld"/><Context docBase="C:\web2\code\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ViduTinhToan_64131905" path="/ViduTinhToan_64131905" reloadable="true" source="org.eclipse.jst.jee.server:ViduTinhToan_64131905"/></Host>
+      <Context docBase="C:\web2\code\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="C:\web2\code\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ViduHelloWorld" path="/ViduHelloWorld" reloadable="true" source="org.eclipse.jst.jee.server:ViduHelloWorld"/><Context docBase="C:\web2\code\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ViduTinhToan_64131905" path="/ViduTinhToan_64131905" reloadable="true" source="org.eclipse.jst.jee.server:ViduTinhToan_64131905"/><Context docBase="C:\web2\code\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\HelloJSP_64131905" path="/HelloJSP_64131905" reloadable="true" source="org.eclipse.jst.jee.server:HelloJSP_64131905"/></Host>
     </Engine>
   </Service>
 </Server>
