@@ -23,7 +23,7 @@ public class AboutMe extends HttpServlet {
         // Tạo đối tượng PrintWriter để ghi nội dung HTML
         PrintWriter out = response.getWriter();
 
-        // Tạo nội dung HTML đơn giản
+      
         out.println("<!DOCTYPE html>");
         out.println("<html>");
         out.println("<head>");
