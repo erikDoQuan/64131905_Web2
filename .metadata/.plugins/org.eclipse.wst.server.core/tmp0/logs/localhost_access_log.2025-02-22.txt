@@ -1,1 +1,14 @@
 127.0.0.1 - - [22/Feb/2025:14:37:46 +0700] "GET / HTTP/1.1" 404 751
+127.0.0.1 - - [22/Feb/2025:14:39:24 +0700] "GET / HTTP/1.1" 404 751
+0:0:0:0:0:0:0:1 - - [22/Feb/2025:14:40:15 +0700] "GET /ViduHelloWorld/ HTTP/1.1" 404 770
+0:0:0:0:0:0:0:1 - - [22/Feb/2025:14:40:15 +0700] "GET /favicon.ico HTTP/1.1" 404 762
+0:0:0:0:0:0:0:1 - - [22/Feb/2025:14:41:14 +0700] "GET /ViduHelloWorld/index.html HTTP/1.1" 200 144
+0:0:0:0:0:0:0:1 - - [22/Feb/2025:15:21:51 +0700] "GET /ViduHelloWorld/HelloWorld HTTP/1.1" 200 26
+127.0.0.1 - - [22/Feb/2025:15:21:51 +0700] "GET / HTTP/1.1" 404 751
+127.0.0.1 - - [22/Feb/2025:15:27:46 +0700] "GET / HTTP/1.1" 404 751
+0:0:0:0:0:0:0:1 - - [22/Feb/2025:15:27:46 +0700] "GET /ViduHelloWorld/ HTTP/1.1" 200 144
+0:0:0:0:0:0:0:1 - - [22/Feb/2025:15:27:59 +0700] "GET /ViduHelloWorld/WEB-INF/classes/vn/edu/quan/ViduServlet HTTP/1.1" 404 682
+0:0:0:0:0:0:0:1 - - [22/Feb/2025:15:28:13 +0700] "GET /ViduHelloWorld/HelloWorld HTTP/1.1" 200 55
+0:0:0:0:0:0:0:1 - - [22/Feb/2025:15:30:02 +0700] "GET /ViduHelloWorld/HelloWorld HTTP/1.1" 200 55
+127.0.0.1 - - [22/Feb/2025:15:31:06 +0700] "GET / HTTP/1.1" 404 751
+0:0:0:0:0:0:0:1 - - [22/Feb/2025:15:31:06 +0700] "GET /ViduHelloWorld/HelloWorld HTTP/1.1" 200 42
