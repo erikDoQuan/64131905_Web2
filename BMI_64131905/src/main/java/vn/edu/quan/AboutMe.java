@@ -27,7 +27,7 @@ public class AboutMe extends HttpServlet {
         out.println("<!DOCTYPE html>");
         out.println("<html>");
         out.println("<head>");
-        out.println("<title>Thông tin cá nhân</title>");
+        out.println("<title>Thông tin cá nhân :</title>");
         out.println("</head>");
         out.println("<body>");
         out.println("<h1>Thông tin cá nhân</h1>");
