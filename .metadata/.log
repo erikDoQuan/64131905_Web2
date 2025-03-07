@@ -11299,3 +11299,32 @@ Binding(CTRL+SHIFT+T,
 		,,true),null),
 	org.eclipse.ui.defaultAcceleratorConfiguration,
 	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2025-03-07 10:18:29.087
+!MESSAGE Classpath changed for project: ThuchanhSpringBoot_64131905
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 4 0 2025-03-07 10:18:29.089
+!MESSAGE Cannot invoke "org.eclipse.jdt.core.IClasspathEntry.getPath()" because the return value of "org.springframework.tooling.jdt.ls.commons.classpath.ClasspathUtil.getJreContainer(org.eclipse.jdt.core.IClasspathEntry[])" is null
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "org.eclipse.jdt.core.IClasspathEntry.getPath()" because the return value of "org.springframework.tooling.jdt.ls.commons.classpath.ClasspathUtil.getJreContainer(org.eclipse.jdt.core.IClasspathEntry[])" is null
+	at org.springframework.tooling.jdt.ls.commons.classpath.ClasspathUtil.resolve(ClasspathUtil.java:98)
+	at org.springframework.tooling.jdt.ls.commons.classpath.SendClasspathNotificationsJob.run(SendClasspathNotificationsJob.java:130)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2025-03-07 10:18:30.129
+!MESSAGE Classpath changed for project: ThuchanhSpringBoot_64131905
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2025-03-07 10:18:30.129
+!MESSAGE Boot project ADDED: ThuchanhSpringBoot_64131905
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2025-03-07 10:19:05.402
+!MESSAGE Classpath changed for project: ThuchanhSpringBoot_64131905
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2025-03-07 10:19:05.402
+!MESSAGE Boot project REMOVED: ThuchanhSpringBoot_64131905
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2025-03-07 10:20:03.270
+!MESSAGE Classpath changed for project: ThuchanhSpringBoot_64131905
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2025-03-07 10:20:03.271
+!MESSAGE Boot project ADDED: ThuchanhSpringBoot_64131905
