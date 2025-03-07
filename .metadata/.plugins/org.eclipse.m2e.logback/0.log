@@ -1781,3 +1781,6 @@
 2025-03-07 10:29:23,994 [Worker-1: Launching ThuchanhSpringBoot_64131905 - ThuchanhSpringBoot64131905Application] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
 2025-03-07 10:29:23,998 [Worker-1: Launching ThuchanhSpringBoot_64131905 - ThuchanhSpringBoot64131905Application] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 2 resources from src\main\resources to target\classes
 2025-03-07 10:29:24,002 [Worker-1: Launching ThuchanhSpringBoot_64131905 - ThuchanhSpringBoot64131905Application] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\web2\code\ThuchanhSpringBoot_64131905\src\test\resources
+2025-03-07 10:30:28,256 [Worker-16: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-03-07 10:30:28,269 [Worker-16: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-03-07 10:30:28,272 [Worker-16: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\web2\code\ThuchanhSpringBoot_64131905\src\test\resources
