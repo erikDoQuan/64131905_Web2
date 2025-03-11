@@ -2,13 +2,40 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Thông tin sinh viên</title>
+    <title>Danh sách sinh viên</title>
+    <style>
+        table {
+            width: 50%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
 </head>
 <body>
-    <h1>Thông tin sinh viên</h1>
-    <p>MSSV: <span th:text="${sv.getMssv()}"></span></p>
-    <p>Họ tên: <span th:text="${sv.getHoTen()}"></span></p>
-    <p>Năm sinh: <span th:text="${sv.getNamSinh()}"></span></p>
-    <p>Giới tính: <span th:text="${sv.getGioiTinh()}"></span></p>
+
+    <h1>Danh sách sinh viên</h1>
+
+    <table>
+        <tr>
+            <th>MSSV</th>
+            <th>Họ và tên</th>
+            <th>Năm sinh</th>
+            <th>Giới tính</th>
+        </tr>
+        <tr th:each="sv : ${danhSachSinhVien}">
+            <td th:text="${sv.mssv}"></td>
+            <td th:text="${sv.hoTen}"></td>
+            <td th:text="${sv.namSinh}"></td>
+            <td th:text="${sv.gioiTinh}"></td>
+        </tr>
+    </table>
+
 </body>
 </html>
