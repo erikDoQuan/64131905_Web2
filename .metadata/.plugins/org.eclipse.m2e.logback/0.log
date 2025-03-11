@@ -2115,3 +2115,159 @@ Caused by: org.eclipse.core.runtime.CoreException: Cannot determine URI for '/Tr
 	at org.eclipse.ui.texteditor.AbstractTextEditor.internalInit(AbstractTextEditor.java:3188)
 	... 120 common frames omitted
 2025-03-11 20:18:08,815 [Worker-5: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2025-03-11 20:23:03,080 [Worker-15: Building] ERROR o.e.m.c.i.p.r.ProjectRegistryManager - File not found: C:\web2\code\Truyendulieu1_64131905.zip_expanded\Truyendulieu1_64131905\pom.xml.
+org.eclipse.core.internal.resources.ResourceException: File not found: C:\web2\code\Truyendulieu1_64131905.zip_expanded\Truyendulieu1_64131905\pom.xml.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:886)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:352)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:342)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refreshPhase2(ProjectRegistryManager.java:589)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refresh(ProjectRegistryManager.java:491)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refresh(ProjectRegistryManager.java:370)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refresh(ProjectRegistryManager.java:322)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.getProjectFacade(MavenBuilder.java:146)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.lambda$0(MavenBuilder.java:84)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:458)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:339)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:278)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.execute(MavenBuilder.java:83)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder.build(MavenBuilder.java:192)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:1077)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:296)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:352)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:441)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:444)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:555)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:503)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:585)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:207)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:300)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.eclipse.core.runtime.CoreException: File not found: C:\web2\code\Truyendulieu1_64131905.zip_expanded\Truyendulieu1_64131905\pom.xml.
+	at org.eclipse.core.internal.filesystem.Policy.error(Policy.java:32)
+	at org.eclipse.core.internal.filesystem.local.LocalFile.handleReadIOException(LocalFile.java:542)
+	at org.eclipse.core.internal.filesystem.local.LocalFile.openInputStream(LocalFile.java:523)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:881)
+	... 26 common frames omitted
+Caused by: java.io.FileNotFoundException: C:\web2\code\Truyendulieu1_64131905.zip_expanded\Truyendulieu1_64131905\pom.xml (The system cannot find the file specified)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:159)
+	at org.eclipse.core.internal.filesystem.local.LocalFile.openInputStream(LocalFile.java:521)
+	... 27 common frames omitted
+2025-03-11 20:36:03,987 [Worker-5: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2025-03-11 20:36:09,316 [Worker-1: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: vn.quan.edu:ThuchanhSpringBoot_64131905:0.0.1-SNAPSHOT @ C:\web2\code\ThuchanhSpringBoot_64131905\pom.xml.
+2025-03-11 20:36:11,086 [Worker-1: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-03-11 20:36:11,088 [Worker-1: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-03-11 20:36:11,093 [Worker-1: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\web2\code\ThuchanhSpringBoot_64131905\src\test\resources
+2025-03-11 20:36:12,478 [Worker-1: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-03-11 20:36:12,480 [Worker-1: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-03-11 20:36:12,486 [Worker-1: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\web2\code\ThuchanhSpringBoot_64131905\src\test\resources
+2025-03-11 20:44:33,622 [Worker-33: Launching mavenrun-afa3d790-e951-4548-8009-2bb634445dca] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=org.eclipse.m2e.maven.runtime_3.9.900.20240824-1409 [638])
+2025-03-11 20:44:33,626 [Worker-33: Launching mavenrun-afa3d790-e951-4548-8009-2bb634445dca] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\ACER\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20240824-1409
+2025-03-11 20:44:33,626 [Worker-33: Launching mavenrun-afa3d790-e951-4548-8009-2bb634445dca] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\ACER\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20240824-1409\jars\aopalliance-1.0.jar
+2025-03-11 20:44:33,626 [Worker-33: Launching mavenrun-afa3d790-e951-4548-8009-2bb634445dca] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\ACER\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20240824-1409\jars\guice-5.1.0.jar
+2025-03-11 20:44:33,627 [Worker-33: Launching mavenrun-afa3d790-e951-4548-8009-2bb634445dca] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\ACER\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20240824-1409\jars\httpclient-4.5.14.jar
+2025-03-11 20:44:33,627 [Worker-33: Launching mavenrun-afa3d790-e951-4548-8009-2bb634445dca] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\ACER\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20240824-1409\jars\httpcore-4.4.16.jar
+2025-03-11 20:44:33,627 [Worker-33: Launching mavenrun-afa3d790-e951-4548-8009-2bb634445dca] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\ACER\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20240824-1409\jars\jansi-2.4.1.jar
+2025-03-11 20:44:33,627 [Worker-33: Launching mavenrun-afa3d790-e951-4548-8009-2bb634445dca] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\ACER\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20240824-1409\jars\jcl-over-slf4j-1.7.36.jar
+2025-03-11 20:44:33,627 [Worker-33: Launching mavenrun-afa3d790-e951-4548-8009-2bb634445dca] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\ACER\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20240824-1409\jars\maven-artifact-3.9.9.jar
+2025-03-11 20:44:33,627 [Worker-33: Launching mavenrun-afa3d790-e951-4548-8009-2bb634445dca] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\ACER\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20240824-1409\jars\maven-builder-support-3.9.9.jar
+2025-03-11 20:44:33,627 [Worker-33: Launching mavenrun-afa3d790-e951-4548-8009-2bb634445dca] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\ACER\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20240824-1409\jars\maven-compat-3.9.9.jar
+2025-03-11 20:44:33,627 [Worker-33: Launching mavenrun-afa3d790-e951-4548-8009-2bb634445dca] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\ACER\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20240824-1409\jars\maven-core-3.9.9.jar
+2025-03-11 20:44:33,627 [Worker-33: Launching mavenrun-afa3d790-e951-4548-8009-2bb634445dca] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\ACER\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20240824-1409\jars\maven-embedder-3.9.9.jar
+2025-03-11 20:44:33,627 [Worker-33: Launching mavenrun-afa3d790-e951-4548-8009-2bb634445dca] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\ACER\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20240824-1409\jars\maven-model-3.9.9.jar
+2025-03-11 20:44:33,628 [Worker-33: Launching mavenrun-afa3d790-e951-4548-8009-2bb634445dca] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\ACER\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20240824-1409\jars\maven-model-builder-3.9.9.jar
+2025-03-11 20:44:33,628 [Worker-33: Launching mavenrun-afa3d790-e951-4548-8009-2bb634445dca] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\ACER\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20240824-1409\jars\maven-plugin-api-3.9.9.jar
+2025-03-11 20:44:33,628 [Worker-33: Launching mavenrun-afa3d790-e951-4548-8009-2bb634445dca] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\ACER\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20240824-1409\jars\maven-repository-metadata-3.9.9.jar
+2025-03-11 20:44:33,628 [Worker-33: Launching mavenrun-afa3d790-e951-4548-8009-2bb634445dca] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\ACER\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20240824-1409\jars\maven-resolver-api-1.9.22.jar
+2025-03-11 20:44:33,628 [Worker-33: Launching mavenrun-afa3d790-e951-4548-8009-2bb634445dca] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\ACER\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20240824-1409\jars\maven-resolver-connector-basic-1.9.22.jar
+2025-03-11 20:44:33,628 [Worker-33: Launching mavenrun-afa3d790-e951-4548-8009-2bb634445dca] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\ACER\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20240824-1409\jars\maven-resolver-impl-1.9.22.jar
+2025-03-11 20:44:33,628 [Worker-33: Launching mavenrun-afa3d790-e951-4548-8009-2bb634445dca] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\ACER\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20240824-1409\jars\maven-resolver-named-locks-1.9.22.jar
+2025-03-11 20:44:33,628 [Worker-33: Launching mavenrun-afa3d790-e951-4548-8009-2bb634445dca] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\ACER\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20240824-1409\jars\maven-resolver-provider-3.9.9.jar
+2025-03-11 20:44:33,629 [Worker-33: Launching mavenrun-afa3d790-e951-4548-8009-2bb634445dca] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\ACER\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20240824-1409\jars\maven-resolver-spi-1.9.22.jar
+2025-03-11 20:44:33,629 [Worker-33: Launching mavenrun-afa3d790-e951-4548-8009-2bb634445dca] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\ACER\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20240824-1409\jars\maven-resolver-transport-file-1.9.22.jar
+2025-03-11 20:44:33,629 [Worker-33: Launching mavenrun-afa3d790-e951-4548-8009-2bb634445dca] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\ACER\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20240824-1409\jars\maven-resolver-transport-http-1.9.22.jar
+2025-03-11 20:44:33,629 [Worker-33: Launching mavenrun-afa3d790-e951-4548-8009-2bb634445dca] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\ACER\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20240824-1409\jars\maven-resolver-transport-wagon-1.9.22.jar
+2025-03-11 20:44:33,629 [Worker-33: Launching mavenrun-afa3d790-e951-4548-8009-2bb634445dca] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\ACER\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20240824-1409\jars\maven-resolver-util-1.9.22.jar
+2025-03-11 20:44:33,629 [Worker-33: Launching mavenrun-afa3d790-e951-4548-8009-2bb634445dca] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\ACER\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20240824-1409\jars\maven-settings-3.9.9.jar
+2025-03-11 20:44:33,629 [Worker-33: Launching mavenrun-afa3d790-e951-4548-8009-2bb634445dca] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\ACER\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20240824-1409\jars\maven-settings-builder-3.9.9.jar
+2025-03-11 20:44:33,629 [Worker-33: Launching mavenrun-afa3d790-e951-4548-8009-2bb634445dca] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\ACER\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20240824-1409\jars\maven-shared-utils-3.4.2.jar
+2025-03-11 20:44:33,629 [Worker-33: Launching mavenrun-afa3d790-e951-4548-8009-2bb634445dca] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\ACER\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20240824-1409\jars\org.eclipse.sisu.inject-0.9.0.M3.jar
+2025-03-11 20:44:33,630 [Worker-33: Launching mavenrun-afa3d790-e951-4548-8009-2bb634445dca] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\ACER\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20240824-1409\jars\org.eclipse.sisu.plexus-0.9.0.M3.jar
+2025-03-11 20:44:33,630 [Worker-33: Launching mavenrun-afa3d790-e951-4548-8009-2bb634445dca] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\ACER\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20240824-1409\jars\plexus-build-api-0.0.7.jar
+2025-03-11 20:44:33,630 [Worker-33: Launching mavenrun-afa3d790-e951-4548-8009-2bb634445dca] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\ACER\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20240824-1409\jars\plexus-build-api-1.2.0.jar
+2025-03-11 20:44:33,630 [Worker-33: Launching mavenrun-afa3d790-e951-4548-8009-2bb634445dca] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\ACER\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20240824-1409\jars\plexus-cipher-2.0.jar
+2025-03-11 20:44:33,630 [Worker-33: Launching mavenrun-afa3d790-e951-4548-8009-2bb634445dca] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\ACER\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20240824-1409\jars\plexus-classworlds-2.8.0.jar
+2025-03-11 20:44:33,630 [Worker-33: Launching mavenrun-afa3d790-e951-4548-8009-2bb634445dca] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\ACER\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20240824-1409\jars\plexus-component-annotations-2.1.0.jar
+2025-03-11 20:44:33,631 [Worker-33: Launching mavenrun-afa3d790-e951-4548-8009-2bb634445dca] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\ACER\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20240824-1409\jars\plexus-interpolation-1.27.jar
+2025-03-11 20:44:33,631 [Worker-33: Launching mavenrun-afa3d790-e951-4548-8009-2bb634445dca] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\ACER\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20240824-1409\jars\plexus-sec-dispatcher-2.0.jar
+2025-03-11 20:44:33,631 [Worker-33: Launching mavenrun-afa3d790-e951-4548-8009-2bb634445dca] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\ACER\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20240824-1409\jars\plexus-utils-3.5.1.jar
+2025-03-11 20:44:33,631 [Worker-33: Launching mavenrun-afa3d790-e951-4548-8009-2bb634445dca] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\ACER\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20240824-1409\jars\plexus-xml-3.0.1.jar
+2025-03-11 20:44:33,631 [Worker-33: Launching mavenrun-afa3d790-e951-4548-8009-2bb634445dca] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\ACER\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20240824-1409\jars\wagon-file-3.5.3.jar
+2025-03-11 20:44:33,631 [Worker-33: Launching mavenrun-afa3d790-e951-4548-8009-2bb634445dca] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\ACER\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20240824-1409\jars\wagon-http-3.5.3.jar
+2025-03-11 20:44:33,631 [Worker-33: Launching mavenrun-afa3d790-e951-4548-8009-2bb634445dca] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\ACER\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20240824-1409\jars\wagon-http-shared-3.5.3.jar
+2025-03-11 20:44:33,631 [Worker-33: Launching mavenrun-afa3d790-e951-4548-8009-2bb634445dca] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\ACER\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20240824-1409\jars\wagon-provider-api-3.5.3.jar
+2025-03-11 20:44:33,633 [Worker-33: Launching mavenrun-afa3d790-e951-4548-8009-2bb634445dca] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=com.google.guava_33.4.0.jre [1026])
+2025-03-11 20:44:33,634 [Worker-33: Launching mavenrun-afa3d790-e951-4548-8009-2bb634445dca] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\ACER\.p2\pool\plugins\com.google.guava_33.4.0.jre.jar
+2025-03-11 20:44:33,634 [Worker-33: Launching mavenrun-afa3d790-e951-4548-8009-2bb634445dca] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=slf4j.api_2.0.17 [1089])
+2025-03-11 20:44:33,634 [Worker-33: Launching mavenrun-afa3d790-e951-4548-8009-2bb634445dca] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\ACER\.p2\pool\plugins\slf4j.api_2.0.17.jar
+2025-03-11 20:44:33,634 [Worker-33: Launching mavenrun-afa3d790-e951-4548-8009-2bb634445dca] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=jakarta.inject.jakarta.inject-api_1.0.5 [34])
+2025-03-11 20:44:33,634 [Worker-33: Launching mavenrun-afa3d790-e951-4548-8009-2bb634445dca] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\ACER\.p2\pool\plugins\jakarta.inject.jakarta.inject-api_1.0.5.jar
+2025-03-11 20:44:33,634 [Worker-33: Launching mavenrun-afa3d790-e951-4548-8009-2bb634445dca] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=jakarta.annotation-api_1.3.5 [29])
+2025-03-11 20:44:33,635 [Worker-33: Launching mavenrun-afa3d790-e951-4548-8009-2bb634445dca] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\ACER\.p2\pool\plugins\jakarta.annotation-api_1.3.5.jar
+2025-03-11 20:44:33,635 [Worker-33: Launching mavenrun-afa3d790-e951-4548-8009-2bb634445dca] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=org.apache.commons.cli_1.9.0 [75])
+2025-03-11 20:44:33,635 [Worker-33: Launching mavenrun-afa3d790-e951-4548-8009-2bb634445dca] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\ACER\.p2\pool\plugins\org.apache.commons.cli_1.9.0.jar
+2025-03-11 20:44:33,635 [Worker-33: Launching mavenrun-afa3d790-e951-4548-8009-2bb634445dca] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=org.apache.commons.commons-codec_1.16.0 [78])
+2025-03-11 20:44:33,635 [Worker-33: Launching mavenrun-afa3d790-e951-4548-8009-2bb634445dca] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\ACER\.p2\pool\plugins\org.apache.commons.commons-codec_1.16.0.jar
+2025-03-11 20:44:33,635 [Worker-33: Launching mavenrun-afa3d790-e951-4548-8009-2bb634445dca] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=com.google.guava.failureaccess_1.0.2 [17])
+2025-03-11 20:44:33,636 [Worker-33: Launching mavenrun-afa3d790-e951-4548-8009-2bb634445dca] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\ACER\.p2\pool\plugins\com.google.guava.failureaccess_1.0.2.jar
+2025-03-11 20:44:33,640 [Worker-33: Launching mavenrun-afa3d790-e951-4548-8009-2bb634445dca] INFO  o.e.m.i.launch.MavenLaunchDelegate - Run build in "C:\Users\ACER\AppData\Local\Temp\m2e-archetypeGenerator12185517789102972632":
+2025-03-11 20:44:33,645 [Worker-33: Launching mavenrun-afa3d790-e951-4548-8009-2bb634445dca] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -DarchetypeGroupId=org.apache.maven.archetypes -DarchetypeArtifactId=maven-archetype-webapp -DarchetypeVersion=1.5 -DgroupId=TruyenDuLieuSangView -DartifactId=edu.quandcm -Dversion=0.0.1-SNAPSHOT -Dpackage=TruyenDuLieuSangView.edu.quandcm -DoutputDirectory=C:\web2\code -Dstyle.color=always -U archetype:generate
+2025-03-11 20:45:03,406 [Worker-16: Creating maven-archetype-webapp] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Collecting project info '/pom.xml' C:\web2\code\edu.quandcm\pom.xml
+2025-03-11 20:45:03,644 [Worker-16: Creating maven-archetype-webapp] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: TruyenDuLieuSangView:edu.quandcm:0.0.1-SNAPSHOT @ C:\web2\code\edu.quandcm\pom.xml.
+2025-03-11 20:45:04,626 [Worker-16: Creating maven-archetype-webapp] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /edu.quandcm/src/main/java
+2025-03-11 20:45:04,627 [Worker-16: Creating maven-archetype-webapp] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /edu.quandcm/src/main/resources
+2025-03-11 20:45:04,628 [Worker-16: Creating maven-archetype-webapp] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /edu.quandcm/src/test/java
+2025-03-11 20:45:04,628 [Worker-16: Creating maven-archetype-webapp] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /edu.quandcm/src/test/resources
+2025-03-11 20:45:05,863 [Worker-16: Creating maven-archetype-webapp] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Imported and configured 1 project(s) in 2 sec
+2025-03-11 20:45:06,464 [Worker-35: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\web2\code\edu.quandcm\src\main\resources
+2025-03-11 20:45:06,468 [Worker-35: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\web2\code\edu.quandcm\src\test\resources
+2025-03-11 20:46:11,696 [Worker-5: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2025-03-11 20:48:42,400 [Worker-21: Import Getting Started Content] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: vn.quan.edu:TruyenDuLieuSangView:0.0.1-SNAPSHOT @ C:\web2\code\TruyenDuLieuSangView\pom.xml.
+2025-03-11 20:48:43,838 [Worker-21: Import Getting Started Content] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /TruyenDuLieuSangView/src/main/java
+2025-03-11 20:48:43,840 [Worker-21: Import Getting Started Content] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /TruyenDuLieuSangView/src/main/resources
+2025-03-11 20:48:43,855 [Worker-21: Import Getting Started Content] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /TruyenDuLieuSangView/src/main/resources
+2025-03-11 20:48:43,866 [Worker-21: Import Getting Started Content] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /TruyenDuLieuSangView/src/test/java
+2025-03-11 20:48:43,867 [Worker-21: Import Getting Started Content] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /TruyenDuLieuSangView/src/test/resources
+2025-03-11 20:48:44,391 [Worker-21: Import Getting Started Content] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Imported and configured 1 project(s) in 3 sec
+2025-03-11 20:48:44,395 [Worker-21: Import Getting Started Content] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update started
+2025-03-11 20:48:45,120 [Worker-21: Import Getting Started Content] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: vn.quan.edu:TruyenDuLieuSangView:0.0.1-SNAPSHOT @ C:\web2\code\TruyenDuLieuSangView\pom.xml.
+2025-03-11 20:48:45,701 [Worker-21: Import Getting Started Content] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /TruyenDuLieuSangView/src/main/java
+2025-03-11 20:48:45,701 [Worker-21: Import Getting Started Content] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /TruyenDuLieuSangView/src/main/resources
+2025-03-11 20:48:45,702 [Worker-21: Import Getting Started Content] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /TruyenDuLieuSangView/src/main/resources
+2025-03-11 20:48:45,703 [Worker-21: Import Getting Started Content] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /TruyenDuLieuSangView/src/test/java
+2025-03-11 20:48:45,703 [Worker-21: Import Getting Started Content] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /TruyenDuLieuSangView/src/test/resources
+2025-03-11 20:48:45,970 [Worker-21: Import Getting Started Content] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update completed for 1 poms: local refresh takes 0.00 sec, refresh facades takes 1.00 sec, update config takes 0.00 sec 
+2025-03-11 20:48:46,702 [Worker-28: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-03-11 20:48:46,724 [Worker-28: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-03-11 20:48:46,729 [Worker-28: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\web2\code\TruyenDuLieuSangView\src\test\resources
+2025-03-11 20:50:41,296 [Worker-10: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-03-11 20:50:41,301 [Worker-10: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-03-11 20:50:41,312 [Worker-10: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\web2\code\TruyenDuLieuSangView\src\test\resources
+2025-03-11 20:52:08,017 [Worker-7: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-03-11 20:52:08,068 [Worker-7: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-03-11 20:52:08,072 [Worker-7: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\web2\code\TruyenDuLieuSangView\src\test\resources
+2025-03-11 20:52:47,632 [Worker-10: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-03-11 20:52:47,642 [Worker-10: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-03-11 20:52:47,645 [Worker-10: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\web2\code\TruyenDuLieuSangView\src\test\resources
+2025-03-11 20:54:30,415 [Worker-7: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-03-11 20:54:30,422 [Worker-7: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-03-11 20:54:30,427 [Worker-7: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\web2\code\TruyenDuLieuSangView\src\test\resources
+2025-03-11 20:55:33,357 [Worker-25: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-03-11 20:55:33,358 [Worker-25: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-03-11 20:55:33,367 [Worker-25: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\web2\code\TruyenDuLieuSangView\src\test\resources
+2025-03-11 20:56:46,137 [Worker-6: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-03-11 20:56:46,141 [Worker-6: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-03-11 20:56:46,148 [Worker-6: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\web2\code\TruyenDuLieuSangView\src\test\resources
