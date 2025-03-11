@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Thông tin sinh viên</title>
+</head>
+<body>
+    <h1>Thông tin sinh viên</h1>
+    <p>MSSV: <span th:text="${sv.getMssv()}"></span></p>
+    <p>Họ tên: <span th:text="${sv.getHoTen()}"></span></p>
+    <p>Năm sinh: <span th:text="${sv.getNamSinh()}"></span></p>
+    <p>Giới tính: <span th:text="${sv.getGioiTinh()}"></span></p>
+</body>
+</html>
