@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import jakarta.servlet.http.HttpServletRequest;
-import quan.edu.TruyenDuLieuSangView.model.SinhVien;
+
 
 import java.util.ArrayList;
 import java.util.List;
