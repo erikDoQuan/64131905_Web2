@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>About</title>
+<link href="styleadmin.css" rel="stylesheet">
+<link href="about.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+<div th:replace="layoutadmin::header"></div>
+
+<div class="content_about">
+<div class= "me">
+<div class="container_about">
+        <img src="/images/mq.jpg" alt="Ảnh đại diện">
+        <h1>Xin chào! Tôi là Minh Quan</h1>
+        <p>Tôi đang theo học tại trường Đại học Nha Trang.</p>
+        <p>Hiện tại tôi đang tìm hiểu về HTML, CSS, JavaScript và Java.</p>
+        <p>Hãy kết nối với tôi qua email: <a href="mailto:quan.dcm.64cntt@ntu.edu.vn">quan.dcm.64cntt@ntu.edu.vn</a></p>
+        <p>hoặc số điện thoại: <a href="tel:+840337782571">0337782571</a></p>
+        <div class="social-links">
+    	<a href="https://www.facebook.com/vianunreal" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+    	<a href="https://www.instagram.com/ppatete_/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+		</div>
+</div>
+</div>
+<div class="right_content" th:replace="layoutadmin::content"></div>
+</div>
+
+
+<div th:replace="layoutadmin::footer"></div>
+</body>
+</html>
