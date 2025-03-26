@@ -1,30 +1,45 @@
 @charset "UTF-8";
+.home{
+	width: 100%;
+    height: calc(100vh - 100px); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #556B2F;
+    color: #F4EFEB;
+    text-align: center;
+    gap:20px;
+    grid-column: span 4 / span 4;
+    grid-row: span 5 / span 5;
+    border-radius: 10px;
 
-
-.text-center .banner {
-    width: 100%;
-    height: 160px; 
-    display: block; 
+}
+.parent {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 8px;
+    padding-bottom: 5px;
 }
 
-/* Định dạng navbar */
-.navbar {
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /
+.text{
+	display: flex;
+    flex-direction: column; /* Xếp text theo cột */
+    align-items: flex-start; /* Căn text về bên trái */
+    justify-content: center; /* Căn giữa text theo chiều dọc */
+    max-width: 50%;
+    padding-top: 6rem;
 }
-
-/* Canh giữa navbar */
-.navbar-nav {
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* Định dạng liên kết trong navbar */
-.navbar-nav .nav-link {
+.text h1 {
+    font-size: 36px;
     font-weight: bold;
-    color: #333;
 }
 
-/* Khi rê chuột vào menu */
-.navbar-nav .nav-link:hover {
-    color: #007bff;
+
+pre {
+    text-align: left;
+    white-space: pre; 
+    font-family: monospace;
+    margin-left: 0; 
+    padding-left: 0; /
 }

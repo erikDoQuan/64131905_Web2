@@ -1,4 +1,10 @@
 /* Định dạng chung cho header */
+.text-center .banner {
+    width: 100%;
+    height: 160px; 
+    display: block; 
+}
+
 *{
 margin: 0;
 padding: 0;
@@ -8,14 +14,7 @@ box-sizing: border-box;
     padding: 10px;
 }
 
-.navbar{
-	display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #F4EFEB;
-    padding: 10px 30px;
-    border-radius: 15px;
-}
+
 
 body{
 	background-color: #ccc;
@@ -52,7 +51,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #2F4157;
+    background-color: #556B2F;
     color: #F4EFEB;
     bottom: 0;
 }
@@ -65,14 +64,31 @@ body{
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    height: 86vh;
+     border-radius: 10px;
 }
 
-.content img{
-	width: 100%;
-	height: 100%; 
-    object-fit: cover; 
-    border-radius: 10px; 
-    
+
+/* Định dạng navbar */
+.navbar {
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /
+}
+
+/* Canh giữa navbar */
+.navbar-nav {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Định dạng liên kết trong navbar */
+.navbar-nav .nav-link {
+    font-weight: bold;
+    color: #333;
+}
+
+/* Khi rê chuột vào menu */
+.navbar-nav .nav-link:hover {
+    color: #007bff;
 }
     
         
