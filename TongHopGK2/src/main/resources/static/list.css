@@ -22,7 +22,7 @@
   justify-content: center; 
   align-items: center; 
   text-align: center; 
-  width: 400%; 
+  width: 406%; 
   margin: auto; 
   padding: 20px;
   background-color:  #556B2F; 
@@ -32,16 +32,7 @@
    height: 86vh;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+
 
 .table_container h2 {
   font-size: 32px;

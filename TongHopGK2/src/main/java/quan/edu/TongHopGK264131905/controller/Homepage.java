@@ -4,7 +4,8 @@ import java.util.ArrayList;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.ui.Model;
 import quan.edu.TongHopGK264131905.model.SinhVien;
 
@@ -36,5 +37,15 @@ ArrayList<SinhVien> sinhViens = new ArrayList<>();
 		model.addAttribute("sinhViens", sinhViens);
 		return "list";
 	}
-	
+	@GetMapping("/addnew")
+    public String addNew() {
+        return "addnew"; 
+    }
+	@PostMapping("/addnew")
+    public String addNewSinhVien(@RequestParam String maSV, @RequestParam String hoTen, 
+                                 @RequestParam int tuoi, @RequestParam String nganh) {
+        SinhVien sinhVien = new SinhVien(maSV, hoTen, tuoi, nganh);
+        sinhViens.add(sinhVien);  
+        return "redirect:/list";  
+    }
 }

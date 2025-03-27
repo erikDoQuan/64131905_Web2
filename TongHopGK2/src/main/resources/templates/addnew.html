@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Đăng Ký Sinh Viên</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="styleadmin.css" rel="stylesheet">
+  <link href="list.css" rel="stylesheet">
+  <link href="addnew.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+  <div th:replace="layoutadmin::header"></div>
+
+  <div class="content_list">
+    <div class="form_container">
+      <h2>Đăng Ký Sinh Viên</h2>
+      <form action="/addnew" method="post">
+        <div class="form-group">
+          <label for="maSV">Mã SV:</label>
+          <input type="text" id="maSV" name="maSV" required>
+        </div>
+        <div class="form-group">
+          <label for="hoTen">Họ và Tên:</label>
+          <input type="text" id="hoTen" name="hoTen" required>
+        </div>
+        <div class="form-group">
+          <label for="tuoi">Tuổi:</label>
+          <input type="number" id="tuoi" name="tuoi" required>
+        </div>
+        <div class="form-group">
+          <label for="nganh">Ngành:</label>
+          <input type="text" id="nganh" name="nganh" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Đăng Ký</button>
+      </form>
+    </div>
+    <div class="right_content" th:replace="layoutadmin::content"></div>
+  </div>
+
+  <div th:replace="layoutadmin::footer"></div>
+</body>
+</html>
