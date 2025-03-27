@@ -19,11 +19,12 @@
   color: #ffffff;
   margin-bottom: 15px;
   font-weight: bold;
+  margin-left: 70px;
 }
 
 .form-group {
   margin-bottom: 15px;
-  width: 100%; /* Đảm bảo các input chiếm đủ chiều rộng trong container */
+  width: 100%; 
 }
 
 .form-group label {
@@ -50,7 +51,8 @@
   font-size: 18px;
   border-radius: 5px;
   cursor: pointer;
-  align-self: center; /* Căn giữa nút Đăng Ký */
+  align-self: center; 
+  margin-left:80px/* Căn giữa nút Đăng Ký */
 }
 
 .btn-primary:hover {
