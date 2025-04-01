@@ -1,0 +1,113 @@
+@charset "UTF-8";
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header */
+.header {
+    background-color: #007bff;
+    padding: 10px 0;
+    text-align: center;
+    color: white;
+}
+.header .navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Navbar Adjustments */
+.navbar-toggler {
+    border: none;
+}
+.navbar-toggler-icon {
+    background-color: white;
+}
+
+/* Sidebar */
+.sidebar {
+    background-color: #f1f1f1;
+    padding: 20px;
+    min-height: 100vh;
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+.sidebar h5 {
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+.sidebar .nav-link {
+    color: #007bff;
+    font-weight: 500;
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+}
+.sidebar .nav-link:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+.dashboard-content {
+    margin-left: 300px; /* Dịch ra bên phải sau Sidebar */
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Căn chỉnh các phần tử sang bên phải */
+}
+.dashboard-img {
+    max-width: 60%;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+.list-group-item {
+    text-align: right; /* Căn phải các liên kết */
+}
+
+/* List group */
+.list-group-item a {
+    text-decoration: none;
+    color: #000;
+    font-weight: 500;
+    display: block;
+    padding: 10px;
+}
+.list-group-item a:hover {
+    color: #007bff;
+}
+
+/* Footer */
+.footer {
+    background-color: #f1f1f1;
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+/* Adjustments for mobile view */
+@media (max-width: 768px) {
+    .sidebar {
+        position: relative;
+        width: 100%;
+        padding: 10px;
+    }
+    .dashboard-content {
+        margin-left: 0;
+    }
+    .navbar-toggler {
+        display: block;
+    }
+    .navbar-nav {
+        margin-top: 10px;
+    }
+}
