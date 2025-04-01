@@ -1,58 +1,47 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="vi">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Layout</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/styleadmin.css">
+<meta charset="UTF-8">
+<title>Trang chủ</title>
+<link href="layoutadmin.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
-
-    <!-- Header Fragment -->
-    <div th:fragment="header" class="header">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container">
-            	<div class="text-center mt-3">
-                <img src="/images/baner.png" alt="Dashboard Image" class="dashboard-img">
-            </div>
-                <a class="navbar-brand ms-auto" href="#">Do Cao Minh Quan</a> 
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-            </div>
-        </nav>
-    </div>
-
-    <!-- Sidebar Fragment -->
-    <div th:fragment="sidebar" class="sidebar">
-        <div class="p-3 bg-light">
-            <!-- Thêm một số nội dung cho Sidebar nếu cần -->
-        </div>
-    </div>
-
-    <!-- Content Fragment -->
-    <div th:fragment="content">
-    <div class="container mt-4 dashboard-content">
-        <h2 class="text-center">Dashboard</h2>
-
-        <!-- Khu vực để bạn chèn ảnh -->
-        <div class="text-center mt-3">
-            <img src="/images/baner.png" alt="Dashboard Image" class="dashboard-img">
-        </div>
-
-        <ul class="list-group mt-4">
-            <li class="list-group-item"><a th:href="@{/topic/list}">Topic - List</a></li>
-            <li class="list-group-item"><a th:href="@{/topic/add}">Topic - Add</a></li>
-            <li class="list-group-item"><a th:href="@{/student/list}">Student - List</a></li>
-            <li class="list-group-item"><a th:href="@{/student/add}">Student - Add</a></li>
-        </ul>
-    </div>
+<div th:fragment="header" class="header">
+	<div class="left_content">
+		<img src="images/baner.png" alt="Logo" class="logo">
+	</div>
+	<div class="right_content">
+		<nav>
+			<a>Do Cao Minh Quan</a>
+		</nav>
+	</div>
 </div>
-    <!-- Footer Fragment -->
-    <div th:fragment="footer" class="footer text-center p-3 bg-light">
-        <p>&copy; 2025 Copyright by Do Cao Minh Quan</p>
-    </div>
+<div th:fragment="navs" class="container_navb">
+  <div class="d-flex justify-content-center">
+    <ul class="nav flex-column">
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="/topic/all">Topic-List</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="topic/add">Topic-AddNew</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Student-List</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Student-AddNew</a>
+      </li>
+    </ul>
+    <div class="right_content">
+		<img src="images/right.jpg" alt="right_images" class="conntet">
+	</div>
+  </div>
+</div>
 
+
+<div th:fragment="footer" class="footer">
+		<p>&copy; Do Cao Minh Quan - FIT.NTU</p>
+</div>
 </body>
 </html>

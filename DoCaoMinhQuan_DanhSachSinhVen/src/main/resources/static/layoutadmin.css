@@ -1,113 +1,132 @@
-@charset "UTF-8";
 
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f8f9fa;
-    margin: 0;
-    padding: 0;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap');
+*{
+   
+    font-optical-sizing: auto;
+  	font-weight: 500;
+  	font-style: normal;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
-
-/* Header */
-.header {
-    background-color: #007bff;
-    padding: 10px 0;
-    text-align: center;
-    color: white;
-}
-.header .navbar-brand {
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-/* Navbar Adjustments */
-.navbar-toggler {
-    border: none;
-}
-.navbar-toggler-icon {
-    background-color: white;
-}
-
-/* Sidebar */
-.sidebar {
-    background-color: #f1f1f1;
-    padding: 20px;
-    min-height: 100vh;
-    width: 250px;
-    position: fixed;
-    top: 0;
-    left: 0;
-}
-.sidebar h5 {
-    font-weight: bold;
-    margin-bottom: 15px;
-}
-.sidebar .nav-link {
-    color: #007bff;
-    font-weight: 500;
-    display: block;
-    padding: 10px;
-    text-decoration: none;
-}
-.sidebar .nav-link:hover {
-    background-color: #007bff;
-    color: white;
-}
-
-.dashboard-content {
-    margin-left: 300px; /* Dịch ra bên phải sau Sidebar */
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-}
-.container {
+.header{
+    padding: 15px;
     display: flex;
-    flex-direction: column;
-    align-items: flex-end; /* Căn chỉnh các phần tử sang bên phải */
-}
-.dashboard-img {
-    max-width: 60%;
-    border-radius: 10px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-}
-.list-group-item {
-    text-align: right; /* Căn phải các liên kết */
+    justify-content: space-between;
+    align-items: center;
+
 }
 
-/* List group */
-.list-group-item a {
+.left_content{
+	display: flex;
+}
+
+.right_content{
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+.navbar{
+	display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+    border-radius: 15px;
+}
+
+body{
+	background-color: #fcfdf5;
+}
+
+.logo {
+    width: 300px; 
+    height: 50px;
+    object-fit: cover;
+}
+
+nav {
+    display: flex;
+    justify-content: flex-start; 
+    gap: 20px;
+}
+
+nav a {
+    color: white;
     text-decoration: none;
-    color: #000;
-    font-weight: 500;
-    display: block;
-    padding: 10px;
-}
-.list-group-item a:hover {
-    color: #007bff;
-}
+    font-size: 18px;
+    padding: 10px 15px;
+    border-radius: 5px;
 
-/* Footer */
+}
 .footer {
-    background-color: #f1f1f1;
-    text-align: center;
-    padding: 10px;
-    margin-top: 20px;
+    width: 100%;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:grey;
+
 }
 
-/* Adjustments for mobile view */
-@media (max-width: 768px) {
-    .sidebar {
-        position: relative;
-        width: 100%;
-        padding: 10px;
-    }
-    .dashboard-content {
-        margin-left: 0;
-    }
-    .navbar-toggler {
-        display: block;
-    }
-    .navbar-nav {
-        margin-top: 10px;
-    }
+.nav {
+  width: 100%; 
 }
+
+.container_navb {
+  max-width: 100%;
+  margin: 0 auto;   
+  padding: 30px;   
+  border-radius: 10px;
+ 
+}
+
+.d-flex {
+  display: flex;
+  justify-content: center; 
+}
+
+.nav {
+  list-style-type: none; 
+  padding: 0; 
+}
+
+.nav-item {
+  margin: 10px 0; 
+}
+
+.nav-link {
+  display: inline-block; /* hoặc block */
+  padding: 10px 20px; 
+  text-decoration: none;
+  border-radius: 5px; 
+
+}
+
+.nav-link.active {
+
+  width: 70px; /* Lúc này width mới có hiệu lực */
+}
+
+
+.nav-link.disabled {
+  color: #6c757d; 
+  pointer-events: none; 
+  background-color: transparent; 
+}
+.container_navb .d-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.container_navb .right_content {
+    margin-left: 20px; 
+}
+.container_navb .right_content img {
+    width: 800px; 
+    margin-right:90px;
+    height: auto; 
+    object-fit: cover; 
+}
+
