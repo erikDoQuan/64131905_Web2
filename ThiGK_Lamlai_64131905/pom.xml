@@ -53,11 +53,6 @@
 		</dependency>
 		<dependency>
 			<groupId>vn.quan.edu</groupId>
-			<artifactId>BaiThiGiuaKy_Lan2_64131905</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
-		<dependency>
-			<groupId>vn.quan.edu</groupId>
 			<artifactId>HelloSpringBoots_64131905</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
