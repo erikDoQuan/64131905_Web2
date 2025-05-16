@@ -18,7 +18,7 @@
         <a class="nav-link text-white" href="#">[[${tenNguoiDung}]]</a>
     </li>
     <li class="nav-item" th:if="${tenNguoiDung != null}">
-        <a class="nav-link text-white" th:href="@{/trangchu}">Đăng Xuất</a>
+        <a class="nav-link text-white" th:href="@{/dangxuat}">Đăng Xuất</a>
     </li>
     <li class="nav-item" th:unless="${tenNguoiDung != null}">
         <a class="nav-link text-white" th:href="@{/dangnhap}">Đăng Nhập</a>
