@@ -1,0 +1,21 @@
+
+.bg-petlove {
+    background-color: #3c1053 !important;
+}
+
+
+.navbar .nav-link,
+.navbar .navbar-brand {
+    color: white !important;
+}
+
+
+
+
+
+.banner {
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+    object-fit: contain;
+}

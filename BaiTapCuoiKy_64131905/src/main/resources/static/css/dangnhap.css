@@ -1,0 +1,29 @@
+.login-image {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+.input-custom {
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.custom-login-btn {
+    background-color: #3c1053 !important;
+    border-color: #3c1053 !important;
+    color: #fff !important;
+    border-radius: 30px !important;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+}
+
+.custom-login-btn:hover {
+    background-color: #5b2c6f !important;
+}
+.login-form-wrapper {
+    max-width: 350px;
+    width: 100%;
+    margin: 0 auto;
+}

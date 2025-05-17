@@ -19,9 +19,9 @@ public class BaiVietcontroller {
     @GetMapping("/trangchu")
     public String trangChu(
         Model model,
-        @RequestParam(defaultValue = "0") int page,              // Trang hiện tại, mặc định 0
-        @RequestParam(defaultValue = "6") int size,              // Số bài trên 1 trang
-        @RequestParam(defaultValue = "") String keyword          // Từ khóa tìm kiếm (mặc định rỗng)
+        @RequestParam(defaultValue = "0") int page,              
+        @RequestParam(defaultValue = "6") int size,              
+        @RequestParam(defaultValue = "") String keyword         
     ) {
         Page<BaiViet> baiVietPage;
 

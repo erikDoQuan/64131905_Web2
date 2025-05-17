@@ -1,0 +1,41 @@
+.login-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    display: block;
+    margin: 0 auto;
+    object-fit: cover;
+}
+
+
+.input-custom {
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.btn-register {
+    background-color: #3c1053;
+    color: #fff !important;
+    border-radius: 20px;
+    border: none;
+    padding: 10px;
+    font-weight: 600;
+}
+
+.btn-register:hover {
+    background-color: #5b2c6f;
+   
+}
+.btn btn-register{
+	background-color: #3c1053 !important;
+    border-color: #3c1053 !important;
+    color: #fff !important;
+    border-radius: 30px !important;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+}
+.login-form-wrapper {
+    max-width: 350px;
+    width: 100%;
+    margin: 0 auto;
+}

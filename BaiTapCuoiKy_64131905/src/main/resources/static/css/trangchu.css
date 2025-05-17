@@ -1,21 +1,19 @@
 .card-custom {
-    width: 100%;
-    max-width: 100%;  /* đảm bảo không vượt ra ngoài */
-    height: 180px;    /* chiều cao cố định */
-    overflow: hidden; /* cắt phần ảnh thừa */
     border-radius: 12px;
+    background-color: #ffffff;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+      max-width: 350px; /* ✅ Giới hạn chiều rộng */
+    margin: 0 auto;  
 }
 
-.card-custom:hover {
-    transform: scale(1.02);
-}
-
-.card-custom img {
+.card-img-top-custom {
     width: 100%;
-    height: 100%;          /* cho ảnh bằng đúng chiều cao khung */
-    object-fit: cover;     /* cắt và phủ ảnh */
-    object-position: center center;
-    display: block;
+    height: auto; /* ✅ Cho phép hiển thị đủ ảnh */
+    object-fit: contain; /* ✅ Hiển thị toàn bộ ảnh, không cắt */
+    background-color: #f8f8f8; /* ✅ Giữ ảnh gọn gàng */
 }
 
 .card-body-custom {
@@ -23,23 +21,25 @@
     flex-grow: 1;
 }
 
-.card-meta {
-    font-size: 0.9rem;
-    color: #777;
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 8px;
-}
-
 .card-title-custom {
-    font-size: 1.1rem;
     font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
     color: #333;
-    margin-bottom: 8px;
 }
 
 .card-text-custom {
     font-size: 0.95rem;
     color: #555;
+    margin-bottom: 15px;
 }
 
+.read-more-link {
+    font-weight: bold;
+    text-decoration: none;
+    color: #5a2da4;
+}
+
+.read-more-link:hover {
+    text-decoration: underline;
+}
