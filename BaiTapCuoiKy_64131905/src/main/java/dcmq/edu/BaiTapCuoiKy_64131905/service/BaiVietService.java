@@ -33,13 +33,27 @@ public class BaiVietService {
     public List<BaiViet> getLatestPosts() {
         return baiVietRepository.findAllByOrderByNgayDangDesc(PageRequest.of(0, 5)).getContent();
     }
+
     public BaiViet layBaiVietTheoMa(String maBaiViet) {
         return baiVietRepository.findById(maBaiViet).orElse(null);
     }
-   
+
     public Page<BaiViet> getBaiVietTheoLoai(String maLoai, int page, int size) {
         Pageable pageable = PageRequest.of(page, size);
         return baiVietRepository.findByLoaiBaiViet_MaLoaiOrderByNgayDangDesc(maLoai, pageable);
     }
 
+    public List<BaiViet> getAllBaiVietNoPaging() {
+        return baiVietRepository.findAllByOrderByNgayDangDesc(PageRequest.of(0, 1000)).getContent();
+    }
+
+    // Bổ sung phương thức lưu bài viết (thêm hoặc cập nhật)
+    public BaiViet luuBaiViet(BaiViet baiViet) {
+        return baiVietRepository.save(baiViet);
+    }
+
+    // Bổ sung phương thức xóa bài viết theo mã
+    public void xoaBaiViet(String maBaiViet) {
+        baiVietRepository.deleteById(maBaiViet);
+    }
 }

@@ -1,0 +1,92 @@
+
+.bg-petlove {
+    background-color: #3c1053 !important;
+}
+
+
+
+.navbar .nav-link,
+.navbar .navbar-brand {
+    color: white !important;
+}
+
+.banner {
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+    object-fit: contain;
+}
+.navbar-nav .nav-item {
+    margin-bottom: 12px;       
+    border-radius: 8px;       
+    padding: 10px 15px;
+    transition: background-color 0.3s ease;
+}
+
+.navbar-nav .nav-link {
+    color: #fff !important;
+    font-weight: 500;
+    display: block;
+}
+
+.colorful-list {
+  display: flex;
+  gap: 15px;
+  padding: 10px;
+  background-color: #eee;
+  list-style: none;
+  margin: 0;
+  flex-wrap: wrap;  /* cho phép xuống dòng nếu không đủ chỗ */
+}
+
+.colorful-list .item {
+  padding: 8px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 600;
+  user-select: none;
+  border: 2px solid transparent;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.colorful-list .item a.nav-link {
+  color: inherit;          /* kế thừa màu từ li */
+  text-decoration: none;   /* bỏ gạch chân */
+  display: block;          /* chiếm hết li */
+}
+
+.colorful-list .all-posts {
+  background-color: #9999ff;
+  border-color: #000000;
+  color: black;
+}
+
+.colorful-list .dogs {
+  background-color: #66b3e6;
+  color: black;
+}
+
+.colorful-list .cats {
+  background-color: #99bb66;
+  color: black;
+}
+
+.colorful-list .diet {
+  background-color: #d080a6;
+  color: black;
+}
+
+.colorful-list .lifestyle {
+  background-color: #ff9900;
+  color: black;
+}
+
+.colorful-list .vet {
+  background-color: #6644cc;
+  color: white;
+}
+
+.colorful-list .item:hover {
+  border-color: #333;
+  filter: brightness(110%);
+}

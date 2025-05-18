@@ -17,22 +17,29 @@ public class NguoiDungController {
     @Autowired
     private NguoiDungService nguoiDungService;
 
-    
     @GetMapping("/dangnhap")
     public String hienThiFormDangNhap() {
         return "dangnhap";
     }
 
-    
     @PostMapping("/dangnhap")
     public String xuLyDangNhap(@RequestParam String email,
                                @RequestParam String matKhau,
                                HttpSession session,
                                Model model) {
-        var nguoiDung = nguoiDungService.dangNhap(email, matKhau);
-        if (nguoiDung.isPresent()) {
-            session.setAttribute("nguoiDung", nguoiDung.get());
-            return "redirect:/trangchu"; // về trang chủ
+        var nguoiDungOpt = nguoiDungService.dangNhap(email, matKhau);
+        if (nguoiDungOpt.isPresent()) {
+            NguoiDung nguoiDung = nguoiDungOpt.get();
+            session.setAttribute("nguoiDung", nguoiDung);
+
+            if (nguoiDung.getRole() == 0) {
+                return "redirect:/layoutAdmin";
+            } else if (nguoiDung.getRole() == 1) {
+                return "redirect:/layoutUser";
+            } else {
+                model.addAttribute("loiDangNhap", "Role không hợp lệ");
+                return "dangnhap";
+            }
         } else {
             model.addAttribute("loiDangNhap", "Email hoặc mật khẩu không đúng");
             return "dangnhap";
@@ -44,7 +51,6 @@ public class NguoiDungController {
         return "dangky";
     }
 
-
     @PostMapping("/dangky")
     public String xuLyDangKy(
             @RequestParam String hoTen,
@@ -54,7 +60,6 @@ public class NguoiDungController {
             @RequestParam(required = false) String diaChi,
             Model model) {
 
-  
         if (nguoiDungService.timTheoEmail(email).isPresent()) {
             model.addAttribute("loi", "Email đã được sử dụng.");
             return "dangky";
@@ -66,18 +71,38 @@ public class NguoiDungController {
         nguoiDung.setMatKhau(matKhau);
         nguoiDung.setSoDienThoai(soDienThoai);
         nguoiDung.setDiaChi(diaChi);
-        nguoiDung.setRole(1); 
+        nguoiDung.setRole(1);
 
         nguoiDungService.luu(nguoiDung);
         model.addAttribute("thongBao", "Đăng ký thành công! Vui lòng đăng nhập.");
         return "dangky";
     }
 
-
-
     @GetMapping("/dangxuat")
     public String dangXuat(HttpSession session) {
         session.invalidate();
         return "redirect:/trangchu";
+    }
+
+    // Trang Admin
+    @GetMapping("/layoutAdmin")
+    public String trangAdmin(HttpSession session, Model model) {
+        NguoiDung nguoiDung = (NguoiDung) session.getAttribute("nguoiDung");
+        if (nguoiDung == null || nguoiDung.getRole() != 0) {
+            return "redirect:/dangnhap";
+        }
+        model.addAttribute("nguoiDung", nguoiDung);
+        return "Admin/LayoutAdmin";
+    }
+
+    // Trang User
+    @GetMapping("/LayoutUser")
+    public String trangUser(HttpSession session, Model model) {
+        NguoiDung nguoiDung = (NguoiDung) session.getAttribute("nguoiDung");
+        if (nguoiDung == null || nguoiDung.getRole() != 1) {
+            return "redirect:/dangnhap";
+        }
+        model.addAttribute("nguoiDung", nguoiDung);
+        return "/LayoutUser";
     }
 }
