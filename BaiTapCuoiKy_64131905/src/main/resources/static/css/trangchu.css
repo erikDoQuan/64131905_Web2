@@ -5,39 +5,51 @@
     display: flex;
     flex-direction: column;
     height: 100%;
-      max-width: 350px; /* ✅ Giới hạn chiều rộng */
-    margin: 0 auto;  
+    max-width: 100%;  
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); 
+    transition: transform 0.2s ease-in-out;
+}
+
+.card-custom:hover {
+    transform: translateY(-5px); 
 }
 
 .card-img-top-custom {
     width: 100%;
-    height: auto; /* ✅ Cho phép hiển thị đủ ảnh */
-    object-fit: contain; /* ✅ Hiển thị toàn bộ ảnh, không cắt */
-    background-color: #f8f8f8; /* ✅ Giữ ảnh gọn gàng */
+    height: 200px; 
+    object-fit: cover; 
+    background-color: #f8f8f8;
 }
 
 .card-body-custom {
-    padding: 15px;
+    padding: 20px;
     flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .card-title-custom {
     font-weight: 600;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     margin-bottom: 10px;
-    color: #333;
+    color: #2c3e50;
+    text-align: center;
 }
 
 .card-text-custom {
     font-size: 0.95rem;
     color: #555;
     margin-bottom: 15px;
+    text-align: justify;
 }
 
 .read-more-link {
+    align-self: flex-end;
     font-weight: bold;
     text-decoration: none;
     color: #5a2da4;
+    margin-top: auto;
 }
 
 .read-more-link:hover {

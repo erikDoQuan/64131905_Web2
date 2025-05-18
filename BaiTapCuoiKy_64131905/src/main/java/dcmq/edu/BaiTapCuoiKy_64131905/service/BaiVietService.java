@@ -33,4 +33,7 @@ public class BaiVietService {
     public List<BaiViet> getLatestPosts() {
         return baiVietRepository.findAllByOrderByNgayDangDesc(PageRequest.of(0, 5)).getContent();
     }
+    public BaiViet layBaiVietTheoMa(String maBaiViet) {
+        return baiVietRepository.findById(maBaiViet).orElse(null);
+    }
 }

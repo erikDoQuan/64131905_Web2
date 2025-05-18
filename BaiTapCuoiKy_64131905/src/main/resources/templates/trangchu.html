@@ -9,7 +9,7 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/css/trangchu.css" />
-      <link rel="stylesheet" href="/css/LayoutUser.css">
+    <link rel="stylesheet" href="/css/LayoutUser.css">
 </head>
 <body>
 
@@ -22,14 +22,14 @@
          style="width: 100%; height: auto; max-height: 300px; object-fit: contain;" />
 </div>
 
-
+<!-- Sidebar -->
 <div th:replace="LayoutUser :: pSidebar"></div>
 
 <!-- Main Content -->
 <div class="container mt-5">
 
-
-    <form method="get" action="/" class="mb-4">
+    <!-- Form tìm kiếm -->
+    <form method="get" action="/trangchu" class="mb-4">
         <div class="input-group">
             <input type="text" name="keyword" class="form-control" placeholder="Tìm kiếm bài viết..."
                    th:value="${keyword}" />
@@ -39,6 +39,7 @@
 
     <h2 class="mb-4 text-center">BÀI VIẾT NỔI BẬT</h2>
 
+    <!-- Danh sách bài viết -->
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
         <div class="col" th:each="baiViet : ${baiVietPage.content}">
             <div class="card-custom shadow-sm">
@@ -50,31 +51,34 @@
                     <p class="card-text-custom" th:text="${#strings.abbreviate(baiViet.noiDung, 150)}">
                         Mô tả ngắn...
                     </p>
-                    <a class="read-more-link" th:href="@{'/baiviet/' + ${baiViet.maBaiViet}}">Read More</a>
+                    <a class="read-more-link" th:href="@{'/baiviet/' + ${baiViet.maBaiViet}}">Xem chi tiết</a>
                 </div>
             </div>
         </div>
     </div>
 
-  
+    <!-- Phân trang -->
     <nav aria-label="Page navigation example" class="mt-4">
         <ul class="pagination justify-content-center">
+            <!-- Trang trước -->
             <li class="page-item" th:classappend="${baiVietPage.first} ? 'disabled'">
                 <a class="page-link"
-                   th:href="@{/(page=${baiVietPage.number - 1}, keyword=${keyword})}" aria-label="Previous">
+                   th:href="@{/trangchu(page=${baiVietPage.number - 1}, keyword=${keyword})}" aria-label="Previous">
                     <span aria-hidden="true">&laquo;</span>
                 </a>
             </li>
 
+            <!-- Danh sách trang -->
             <li class="page-item" th:each="i : ${#numbers.sequence(0, baiVietPage.totalPages - 1)}"
                 th:classappend="${i == baiVietPage.number} ? 'active'">
                 <a class="page-link"
-                   th:href="@{/(page=${i}, keyword=${keyword})}" th:text="${i + 1}">1</a>
+                   th:href="@{/trangchu(page=${i}, keyword=${keyword})}" th:text="${i + 1}">1</a>
             </li>
 
+            <!-- Trang sau -->
             <li class="page-item" th:classappend="${baiVietPage.last} ? 'disabled'">
                 <a class="page-link"
-                   th:href="@{/(page=${baiVietPage.number + 1}, keyword=${keyword})}" aria-label="Next">
+                   th:href="@{/trangchu(page=${baiVietPage.number + 1}, keyword=${keyword})}" aria-label="Next">
                     <span aria-hidden="true">&raquo;</span>
                 </a>
             </li>

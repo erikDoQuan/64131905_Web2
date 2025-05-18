@@ -5,6 +5,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import dcmq.edu.BaiTapCuoiKy_64131905.model.BaiViet;
@@ -37,4 +38,14 @@ public class BaiVietcontroller {
 
         return "trangchu";
     }
+    @GetMapping("/baiviet/{maBaiViet}")
+    public String xemChiTietBaiViet(@PathVariable String maBaiViet, Model model) {
+        BaiViet baiViet = baiVietService.layBaiVietTheoMa(maBaiViet);
+        if (baiViet == null) {
+            return "redirect:/trangchu"; 
+        }
+        model.addAttribute("baiViet", baiViet);
+        return "xemchitiet";
+    }
+
 }
