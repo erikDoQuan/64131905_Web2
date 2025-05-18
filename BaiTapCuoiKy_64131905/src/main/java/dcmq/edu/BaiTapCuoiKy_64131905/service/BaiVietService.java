@@ -36,4 +36,10 @@ public class BaiVietService {
     public BaiViet layBaiVietTheoMa(String maBaiViet) {
         return baiVietRepository.findById(maBaiViet).orElse(null);
     }
+   
+    public Page<BaiViet> getBaiVietTheoLoai(String maLoai, int page, int size) {
+        Pageable pageable = PageRequest.of(page, size);
+        return baiVietRepository.findByLoaiBaiViet_MaLoaiOrderByNgayDangDesc(maLoai, pageable);
+    }
+
 }

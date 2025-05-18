@@ -13,4 +13,7 @@ public interface BaiVietRepository extends JpaRepository<BaiViet, String> {
 
 
     Page<BaiViet> findByTieuDeContainingIgnoreCaseOrderByNgayDangDesc(String keyword, Pageable pageable);
+    Page<BaiViet> findByLoaiBaiViet_MaLoai(String maLoai, Pageable pageable);
+    Page<BaiViet> findByLoaiBaiViet_MaLoaiOrderByNgayDangDesc(String maLoai, Pageable pageable);
+
 }

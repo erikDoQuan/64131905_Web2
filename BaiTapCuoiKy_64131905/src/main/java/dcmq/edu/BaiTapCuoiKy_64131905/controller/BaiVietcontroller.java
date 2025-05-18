@@ -47,5 +47,61 @@ public class BaiVietcontroller {
         model.addAttribute("baiViet", baiViet);
         return "xemchitiet";
     }
+    @GetMapping("/kinhnghiemnuoicho")
+    public String kinhNghiemNuoiCho(
+        Model model,
+        @RequestParam(defaultValue = "0") int page,
+        @RequestParam(defaultValue = "6") int size
+    ) {
+        String maLoai = "KNC"; 
+        Page<BaiViet> baiVietPage = baiVietService.getBaiVietTheoLoai(maLoai, page, size);
+
+        model.addAttribute("baiVietPage", baiVietPage);
+        model.addAttribute("currentPage", page);
+        model.addAttribute("keyword", ""); 
+
+        return "kinhnghiemnuoicho"; 
+    }
+    @GetMapping("/chamsocthucung")
+    public String hienThiChamSocThuCung(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "") String keyword,
+            Model model) {
+
+        Page<BaiViet> baiVietPage;
+
+        if (!keyword.isBlank()) {
+            baiVietPage = baiVietService.searchBaiViet(keyword, page, 6);
+        } else {
+            baiVietPage = baiVietService.getBaiVietTheoLoai("CSTC", page, 6);
+        }
+
+        model.addAttribute("baiVietPage", baiVietPage);
+        model.addAttribute("keyword", keyword);
+
+        return "chamsocthucung";
+    }
+
+    @GetMapping("/kinhnghiemnuoimeo")
+    public String hienThiKinhNghiemMeo(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "") String keyword,
+            Model model) {
+
+        Page<BaiViet> baiVietPage;
+
+        if (!keyword.isBlank()) {
+            baiVietPage = baiVietService.searchBaiViet(keyword, page, 6);
+        } else {
+            baiVietPage = baiVietService.getBaiVietTheoLoai("KNM", page, 6);
+        }
+
+        model.addAttribute("baiVietPage", baiVietPage);
+        model.addAttribute("keyword", keyword);
+
+        return "kinhnghiemnuoimeo";
+    }
+
+
 
 }
