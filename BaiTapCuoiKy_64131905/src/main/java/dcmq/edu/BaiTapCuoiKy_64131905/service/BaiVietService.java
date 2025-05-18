@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import dcmq.edu.BaiTapCuoiKy_64131905.model.BaiViet;
@@ -17,19 +18,16 @@ public class BaiVietService {
     @Autowired
     private BaiVietRepository baiVietRepository;
 
-    // Lấy danh sách bài viết có phân trang
     public Page<BaiViet> getAllBaiViet(int page, int size) {
-        Pageable pageable = PageRequest.of(page, size);
+        Pageable pageable = PageRequest.of(page, size, Sort.by("ngayDang").descending());
         return baiVietRepository.findAllByOrderByNgayDangDesc(pageable);
     }
 
-    // Tìm kiếm bài viết theo từ khóa, có phân trang
     public Page<BaiViet> searchBaiViet(String keyword, int page, int size) {
-        Pageable pageable = PageRequest.of(page, size);
+        Pageable pageable = PageRequest.of(page, size, Sort.by("ngayDang").descending());
         return baiVietRepository.findByTieuDeContainingIgnoreCaseOrderByNgayDangDesc(keyword, pageable);
     }
 
-    // Lấy tất cả bài viết (không phân trang) - dùng cho mục đích khác
     public List<BaiViet> getLatestPosts() {
         return baiVietRepository.findAllByOrderByNgayDangDesc(PageRequest.of(0, 5)).getContent();
     }
@@ -39,7 +37,7 @@ public class BaiVietService {
     }
 
     public Page<BaiViet> getBaiVietTheoLoai(String maLoai, int page, int size) {
-        Pageable pageable = PageRequest.of(page, size);
+        Pageable pageable = PageRequest.of(page, size, Sort.by("ngayDang").descending());
         return baiVietRepository.findByLoaiBaiViet_MaLoaiOrderByNgayDangDesc(maLoai, pageable);
     }
 
@@ -47,12 +45,10 @@ public class BaiVietService {
         return baiVietRepository.findAllByOrderByNgayDangDesc(PageRequest.of(0, 1000)).getContent();
     }
 
-    // Bổ sung phương thức lưu bài viết (thêm hoặc cập nhật)
     public BaiViet luuBaiViet(BaiViet baiViet) {
         return baiVietRepository.save(baiViet);
     }
 
-    // Bổ sung phương thức xóa bài viết theo mã
     public void xoaBaiViet(String maBaiViet) {
         baiVietRepository.deleteById(maBaiViet);
     }

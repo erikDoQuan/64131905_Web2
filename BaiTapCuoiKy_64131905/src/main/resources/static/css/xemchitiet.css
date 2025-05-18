@@ -26,3 +26,8 @@
     color: #333;
 }
 
+td > a.btn {
+  display: inline-block !important;
+  white-space: nowrap; /* Không xuống dòng */
+  vertical-align: middle; /* Canh giữa theo chiều dọc */
+}

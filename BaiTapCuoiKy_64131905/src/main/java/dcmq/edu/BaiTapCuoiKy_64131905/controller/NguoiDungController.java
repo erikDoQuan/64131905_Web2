@@ -84,7 +84,7 @@ public class NguoiDungController {
         return "redirect:/trangchu";
     }
 
-    // Trang Admin
+  
     @GetMapping("/layoutAdmin")
     public String trangAdmin(HttpSession session, Model model) {
         NguoiDung nguoiDung = (NguoiDung) session.getAttribute("nguoiDung");
@@ -95,8 +95,8 @@ public class NguoiDungController {
         return "Admin/LayoutAdmin";
     }
 
-    // Trang User
-    @GetMapping("/LayoutUser")
+
+    @GetMapping("/layoutUser")
     public String trangUser(HttpSession session, Model model) {
         NguoiDung nguoiDung = (NguoiDung) session.getAttribute("nguoiDung");
         if (nguoiDung == null || nguoiDung.getRole() != 1) {

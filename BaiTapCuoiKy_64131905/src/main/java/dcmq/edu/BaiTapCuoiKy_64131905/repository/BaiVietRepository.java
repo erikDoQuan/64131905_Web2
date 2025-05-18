@@ -8,12 +8,11 @@ import dcmq.edu.BaiTapCuoiKy_64131905.model.BaiViet;
 
 public interface BaiVietRepository extends JpaRepository<BaiViet, String> {
 
- 
     Page<BaiViet> findAllByOrderByNgayDangDesc(Pageable pageable);
 
-
     Page<BaiViet> findByTieuDeContainingIgnoreCaseOrderByNgayDangDesc(String keyword, Pageable pageable);
-    Page<BaiViet> findByLoaiBaiViet_MaLoai(String maLoai, Pageable pageable);
-    Page<BaiViet> findByLoaiBaiViet_MaLoaiOrderByNgayDangDesc(String maLoai, Pageable pageable);
 
+    Page<BaiViet> findByLoaiBaiViet_MaLoai(String maLoai, Pageable pageable);
+
+    Page<BaiViet> findByLoaiBaiViet_MaLoaiOrderByNgayDangDesc(String maLoai, Pageable pageable);
 }
