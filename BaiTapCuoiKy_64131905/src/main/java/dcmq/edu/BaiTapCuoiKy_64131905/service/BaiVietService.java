@@ -10,13 +10,17 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import dcmq.edu.BaiTapCuoiKy_64131905.model.BaiViet;
+import dcmq.edu.BaiTapCuoiKy_64131905.model.LoaiBaiViet;
 import dcmq.edu.BaiTapCuoiKy_64131905.repository.BaiVietRepository;
+import dcmq.edu.BaiTapCuoiKy_64131905.repository.LoaiBaiVietRepository;
 
 @Service
 public class BaiVietService {
 
     @Autowired
     private BaiVietRepository baiVietRepository;
+    @Autowired
+    private LoaiBaiVietRepository loaiBaiVietRepository;
 
     public Page<BaiViet> getAllBaiViet(int page, int size) {
         Pageable pageable = PageRequest.of(page, size, Sort.by("ngayDang").descending());
@@ -52,4 +56,8 @@ public class BaiVietService {
     public void xoaBaiViet(String maBaiViet) {
         baiVietRepository.deleteById(maBaiViet);
     }
+    public List<LoaiBaiViet> getAllLoaiBaiViet() {
+        return loaiBaiVietRepository.findAll();
+    }
+    
 }

@@ -1,10 +1,18 @@
 package dcmq.edu.BaiTapCuoiKy_64131905.controller;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
+import java.util.UUID;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import dcmq.edu.BaiTapCuoiKy_64131905.model.BaiViet;
 import dcmq.edu.BaiTapCuoiKy_64131905.service.BaiVietService;
@@ -15,7 +23,6 @@ public class BaiVietcontroller {
     @Autowired
     private BaiVietService baiVietService;
 
-    // Trang chủ với phân trang + tìm kiếm
     @GetMapping("/trangchu")
     public String trangChu(
         Model model,
@@ -33,7 +40,6 @@ public class BaiVietcontroller {
 
         return "trangchu";
     }
-
     // Trang chi tiết bài viết
     @GetMapping("/baiviet/{maBaiViet}")
     public String xemChiTietBaiViet(@PathVariable String maBaiViet, Model model) {
@@ -44,7 +50,7 @@ public class BaiVietcontroller {
         return "xemchitiet";
     }
 
-    // Các trang phân loại
+
     @GetMapping("/kinhnghiemnuoicho")
     public String kinhNghiemNuoiCho(
         Model model,
@@ -93,7 +99,7 @@ public class BaiVietcontroller {
         return "kinhnghiemnuoimeo";
     }
 
-    // Quản lý bài viết (admin)
+
     @GetMapping("/quanlibaiviet")
     public String hienThiDanhSach(
         @RequestParam(defaultValue = "0") int page,
@@ -112,7 +118,7 @@ public class BaiVietcontroller {
         return "Admin/quanlibaiviet";
     }
 
-    // Thêm bài viết
+
     @GetMapping("/baiviet/them")
     public String hienThiFormThem(Model model) {
         model.addAttribute("baiViet", new BaiViet());
@@ -125,14 +131,29 @@ public class BaiVietcontroller {
         return "redirect:/quanlibaiviet";
     }
 
-    // Sửa bài viết
     @GetMapping("/baiviet/sua/{maBaiViet}")
     public String hienThiFormSua(@PathVariable String maBaiViet, Model model) {
         BaiViet baiViet = baiVietService.layBaiVietTheoMa(maBaiViet);
         if (baiViet == null) return "redirect:/quanlibaiviet";
 
+        model.addAttribute("danhSachLoai", baiVietService.getAllLoaiBaiViet());
         model.addAttribute("baiViet", baiViet);
-        return "baiviet_form";
+        return "Admin/editbaiviet";
+    }
+
+
+    @PostMapping("/baiviet/capnhat")
+    public String capNhatBaiViet(
+            @ModelAttribute BaiViet baiViet,
+            @RequestParam(value = "hinhAnhMoi", required = false) MultipartFile hinhAnhMoi
+    ) {
+        if (hinhAnhMoi != null && !hinhAnhMoi.isEmpty()) {
+            String tenFileMoi = luuFileAnh(hinhAnhMoi);
+            baiViet.setHinhAnh(tenFileMoi);
+        }
+
+        baiVietService.luuBaiViet(baiViet);
+        return "redirect:/quanlibaiviet";
     }
 
     @PostMapping("/baiviet/sua")
@@ -141,10 +162,37 @@ public class BaiVietcontroller {
         return "redirect:/quanlibaiviet";
     }
 
-    // Xoá bài viết
+
     @GetMapping("/baiviet/xoa/{maBaiViet}")
     public String xoaBaiViet(@PathVariable String maBaiViet) {
         baiVietService.xoaBaiViet(maBaiViet);
         return "redirect:/quanlibaiviet";
+    }
+
+ 
+    private String luuFileAnh(MultipartFile file) {
+        if (file.isEmpty()) {
+            return null;
+        }
+        try {
+        	String uploadDir = "uploads/images/";
+
+            File dir = new File(uploadDir);
+            if (!dir.exists()) {
+                dir.mkdirs();
+            }
+            String originalFilename = file.getOriginalFilename();
+            String extension = "";
+            if (originalFilename != null && originalFilename.contains(".")) {
+                extension = originalFilename.substring(originalFilename.lastIndexOf("."));
+            }
+            String newFilename = UUID.randomUUID().toString() + extension;
+            String filePath = uploadDir + newFilename;
+            Files.copy(file.getInputStream(), Paths.get(filePath), StandardCopyOption.REPLACE_EXISTING);
+            return newFilename;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 }
