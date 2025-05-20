@@ -46,4 +46,12 @@ public class NguoiDungService {
     public List<NguoiDung> findAll() {
         return nguoiDungRepository.findAll();
     }
+    public Optional<NguoiDung> timTheoId(int id) {
+        return nguoiDungRepository.findById(id);
+    }
+
+    public void xoaTheoId(int id) {
+        nguoiDungRepository.deleteById(id);
+    }
+
 }
