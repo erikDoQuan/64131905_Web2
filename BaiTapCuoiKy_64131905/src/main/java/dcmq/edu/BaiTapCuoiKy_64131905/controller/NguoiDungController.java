@@ -80,14 +80,14 @@ public class NguoiDungController {
         return "dangky";
     }
 
-    // Đăng xuất
+
     @GetMapping("/dangxuat")
     public String dangXuat(HttpSession session) {
         session.invalidate();
         return "redirect:/trangchu";
     }
 
-    // Trang admin
+
     @GetMapping("/layoutAdmin")
     public String trangAdmin(HttpSession session, Model model) {
         NguoiDung nguoiDung = (NguoiDung) session.getAttribute("nguoiDung");
@@ -98,7 +98,7 @@ public class NguoiDungController {
         return "Admin/LayoutAdmin";
     }
 
-    // Trang user
+
     @GetMapping("/layoutUser")
     public String trangUser(HttpSession session, Model model) {
         NguoiDung nguoiDung = (NguoiDung) session.getAttribute("nguoiDung");
@@ -109,7 +109,7 @@ public class NguoiDungController {
         return "LayoutUser";
     }
 
-    // Quản lý người dùng - phân trang + tìm kiếm
+  
     @GetMapping("/quanlinguoidung")
     public String hienThiDanhSachNguoiDung(Model model,
                                            HttpSession session,
@@ -128,7 +128,7 @@ public class NguoiDungController {
         return "Admin/quanlinguoidung";
     }
 
-    // GET: Hiển thị form sửa người dùng
+  
     @GetMapping("/nguoidung/sua/{id}")
     public String hienThiFormSuaNguoiDung(@PathVariable("id") Integer id, Model model, HttpSession session) {
         NguoiDung admin = (NguoiDung) session.getAttribute("nguoiDung");
@@ -139,14 +139,14 @@ public class NguoiDungController {
         Optional<NguoiDung> nguoiDungOpt = nguoiDungService.timTheoId(id);
         if (nguoiDungOpt.isPresent()) {
             model.addAttribute("nguoiDung", nguoiDungOpt.get());
-            return "Admin/editnguoidung";  // form sửa người dùng
+            return "Admin/editnguoidung";  
         } else {
             model.addAttribute("loi", "Không tìm thấy người dùng.");
             return "redirect:/quanlinguoidung";
         }
     }
 
-    // POST: Xử lý cập nhật người dùng
+
     @PostMapping("/nguoidung/sua")
     public String capNhatNguoiDung(@ModelAttribute("nguoiDung") NguoiDung nguoiDung,
                                    HttpSession session,
@@ -172,7 +172,7 @@ public class NguoiDungController {
         return "redirect:/quanlinguoidung";
     }
 
-    // Xóa người dùng
+
     @GetMapping("/nguoidung/xoa/{id}")
     public String xoaNguoiDung(@PathVariable("id") Integer id,
                                HttpSession session) {
@@ -188,4 +188,34 @@ public class NguoiDungController {
 
         return "redirect:/quanlinguoidung";
     }
+ 
+    @GetMapping("/nguoidung/them")
+    public String hienThiFormThemNguoiDung(Model model, HttpSession session) {
+        NguoiDung admin = (NguoiDung) session.getAttribute("nguoiDung");
+        if (admin == null || admin.getRole() != 0) {
+            return "redirect:/dangnhap";
+        }
+        model.addAttribute("nguoiDung", new NguoiDung());
+        return "Admin/addnguoidung";
+    }
+
+
+    @PostMapping("/nguoidung/them")
+    public String themNguoiDung(@ModelAttribute("nguoiDung") NguoiDung nguoiDung,
+                               Model model,
+                               HttpSession session) {
+        NguoiDung admin = (NguoiDung) session.getAttribute("nguoiDung");
+        if (admin == null || admin.getRole() != 0) {
+            return "redirect:/dangnhap";
+        }
+ 
+        if (nguoiDungService.timTheoEmail(nguoiDung.getEmail()).isPresent()) {
+            model.addAttribute("loi", "Email đã được sử dụng.");
+            return "Admin/addnguoidung";
+        }
+
+        nguoiDungService.luu(nguoiDung);
+        return "redirect:/quanlinguoidung";
+    }
+
 }

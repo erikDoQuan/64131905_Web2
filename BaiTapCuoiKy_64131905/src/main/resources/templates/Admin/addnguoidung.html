@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Thêm Người Dùng - PetLove</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/LayoutAdmin.css" />
+</head>
+<body>
+<div th:replace="Admin/LayoutAdmin :: pHeader"></div>
+<div th:replace="Admin/LayoutAdmin :: pSidebar"></div>
+
+<div class="container mt-5">
+    <h2>Thêm Người Dùng</h2>
+    <form th:action="@{/nguoidung/them}" th:object="${nguoiDung}" method="post" class="mt-4">
+        <div class="mb-3">
+            <label for="hoTen" class="form-label">Họ Tên</label>
+            <input type="text" id="hoTen" th:field="*{hoTen}" class="form-control" required />
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" id="email" th:field="*{email}" class="form-control" required />
+        </div>
+        <div class="mb-3">
+            <label for="matKhau" class="form-label">Mật Khẩu</label>
+            <input type="password" id="matKhau" th:field="*{matKhau}" class="form-control" required />
+        </div>
+        <div class="mb-3">
+            <label for="soDienThoai" class="form-label">Số Điện Thoại</label>
+            <input type="text" id="soDienThoai" th:field="*{soDienThoai}" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label for="diaChi" class="form-label">Địa Chỉ</label>
+            <input type="text" id="diaChi" th:field="*{diaChi}" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label for="role" class="form-label">Vai Trò</label>
+            <select id="role" th:field="*{role}" class="form-select" required>
+                <option value="0" th:text="'Quản lí'"></option>
+                <option value="1" th:text="'Người dùng'"></option>
+            </select>
+        </div>
+
+        <div th:if="${loi != null}" class="alert alert-danger" th:text="${loi}"></div>
+
+        <button type="submit" class="btn btn-primary">Thêm Người Dùng</button>
+        <a href="/quanlinguoidung" class="btn btn-secondary ms-2">Hủy</a>
+    </form>
+</div>
+
+<div th:replace="Admin/LayoutAdmin :: pFooter"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
