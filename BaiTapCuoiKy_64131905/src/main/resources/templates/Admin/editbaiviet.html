@@ -9,60 +9,69 @@
 </head>
 <body>
 
+<!-- Header và Sidebar -->
 <div th:replace="Admin/LayoutAdmin :: pHeader"></div>
 <div th:replace="Admin/LayoutAdmin :: pSidebar"></div>
 
+<!-- Nội dung chính -->
 <div class="container mt-5">
     <h2 class="mb-4">Chỉnh Sửa Bài Viết</h2>
+
     <form th:action="@{/baiviet/capnhat}" th:object="${baiViet}" method="post" enctype="multipart/form-data">
+        <!-- Mã bài viết -->
         <div class="mb-3">
             <label for="maBaiViet" class="form-label">Mã Bài Viết</label>
             <input type="text" th:field="*{maBaiViet}" class="form-control" id="maBaiViet" readonly>
         </div>
 
+        <!-- Tiêu đề -->
         <div class="mb-3">
             <label for="tieuDe" class="form-label">Tiêu Đề</label>
             <input type="text" th:field="*{tieuDe}" class="form-control" id="tieuDe" required>
         </div>
 
+        <!-- Nội dung -->
         <div class="mb-3">
             <label for="noiDung" class="form-label">Nội Dung</label>
             <textarea th:field="*{noiDung}" class="form-control" id="noiDung" rows="6" required></textarea>
         </div>
 
-        <div class="mb-3">
+        <!-- Hình ảnh hiện tại -->
+        <div class="mb-3" th:if="*{hinhAnh} != null">
             <label class="form-label">Hình Ảnh Hiện Tại</label><br>
-        <img th:if="*{hinhAnh}" th:src="@{'/uploads/images/' + *{hinhAnh}}" alt="Hình ảnh hiện tại" class="img-thumbnail mb-2" style="max-height: 200px;">
-
+            <img th:src="@{'/uploads/images/' + *{hinhAnh}}" alt="Hình ảnh hiện tại" class="img-thumbnail mb-2" style="max-height: 200px;">
         </div>
 
+        <!-- Thay đổi hình ảnh -->
         <div class="mb-3">
             <label for="hinhAnhMoi" class="form-label">Thay Đổi Hình Ảnh</label>
             <input type="file" name="hinhAnhMoi" class="form-control" id="hinhAnhMoi">
         </div>
 
+        <!-- Ngày đăng -->
         <div class="mb-3">
             <label for="ngayDang" class="form-label">Ngày Đăng</label>
             <input type="datetime-local" th:field="*{ngayDang}" class="form-control" id="ngayDang" required>
         </div>
 
-       <div class="mb-3">
-    <label for="loaiBaiViet" class="form-label">Loại Bài Viết</label>
-    <select th:field="*{loaiBaiViet.maLoai}" class="form-select" id="loaiBaiViet" required>
-    <option th:each="loai : ${danhSachLoai}"
-            th:value="${loai.maLoai}"
-            th:text="${loai.tenLoai}">
-    </option>
-</select>
+        <!-- Loại bài viết -->
+        <div class="mb-3">
+            <label for="loaiBaiViet" class="form-label">Loại Bài Viết</label>
+            <select th:field="*{loaiBaiViet.maLoai}" class="form-select" id="loaiBaiViet" required>
+                <option th:each="loai : ${danhSachLoai}" 
+                        th:value="${loai.maLoai}" 
+                        th:text="${loai.tenLoai}">
+                </option>
+            </select>
+        </div>
 
-</div>
-
-
+        <!-- Nút cập nhật và hủy -->
         <button type="submit" class="btn btn-primary">Cập Nhật</button>
-        <a href="/quanlibaiviet" class="btn btn-secondary ms-2">Hủy</a>
+        <a th:href="@{/quanlibaiviet}" class="btn btn-secondary ms-2">Hủy</a>
     </form>
 </div>
 
+<!-- Footer -->
 <div th:replace="Admin/LayoutAdmin :: pFooter"></div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

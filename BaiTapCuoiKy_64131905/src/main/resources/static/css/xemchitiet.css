@@ -1,7 +1,5 @@
-
-
 .bai-viet-container {
-    max-width: 800px;
+    max-width: 1000px;
     margin-top: 50px;
     margin-bottom: 80px;
 }
@@ -26,8 +24,22 @@
     color: #333;
 }
 
-td > a.btn {
-  display: inline-block !important;
-  white-space: nowrap; /* Không xuống dòng */
-  vertical-align: middle; /* Canh giữa theo chiều dọc */
+.comments-section {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.comments-section h4 {
+    font-weight: bold;
+}
+
+.comments-section .form-control {
+    border-radius: 5px;
+}
+
+.comments-section .btn {
+    padding-left: 25px;
+    padding-right: 25px;
 }

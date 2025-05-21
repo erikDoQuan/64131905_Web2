@@ -10,8 +10,8 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         // Phục vụ ảnh cũ trong static/images
-        registry.addResourceHandler("/images/**")
-                .addResourceLocations("classpath:/static/images/");
+    	registry.addResourceHandler("/uploads/img/**")
+        .addResourceLocations("file:" + System.getProperty("user.dir") + "/uploads/img/");
 
 
         registry.addResourceHandler("/uploads/images/**")

@@ -24,15 +24,13 @@ public class BaiVietcontroller {
     private BaiVietService baiVietService;
 
     @GetMapping("/trangchu")
-    public String trangChu(
-        Model model,
-        @RequestParam(defaultValue = "0") int page,
-        @RequestParam(defaultValue = "6") int size,
-        @RequestParam(defaultValue = "") String keyword
-    ) {
+    public String trangChu(Model model,
+                           @RequestParam(defaultValue = "0") int page,
+                           @RequestParam(defaultValue = "6") int size,
+                           @RequestParam(defaultValue = "") String keyword) {
         Page<BaiViet> baiVietPage = keyword.isEmpty()
-            ? baiVietService.getAllBaiViet(page, size)
-            : baiVietService.searchBaiViet(keyword, page, size);
+                ? baiVietService.getAllBaiViet(page, size)
+                : baiVietService.searchBaiViet(keyword, page, size);
 
         model.addAttribute("baiVietPage", baiVietPage);
         model.addAttribute("currentPage", page);
@@ -40,7 +38,7 @@ public class BaiVietcontroller {
 
         return "trangchu";
     }
-    // Trang chi tiết bài viết
+
     @GetMapping("/baiviet/{maBaiViet}")
     public String xemChiTietBaiViet(@PathVariable String maBaiViet, Model model) {
         BaiViet baiViet = baiVietService.layBaiVietTheoMa(maBaiViet);
@@ -50,13 +48,10 @@ public class BaiVietcontroller {
         return "xemchitiet";
     }
 
-
     @GetMapping("/kinhnghiemnuoicho")
-    public String kinhNghiemNuoiCho(
-        Model model,
-        @RequestParam(defaultValue = "0") int page,
-        @RequestParam(defaultValue = "6") int size
-    ) {
+    public String kinhNghiemNuoiCho(Model model,
+                                    @RequestParam(defaultValue = "0") int page,
+                                    @RequestParam(defaultValue = "6") int size) {
         String maLoai = "KNC";
         Page<BaiViet> baiVietPage = baiVietService.getBaiVietTheoLoai(maLoai, page, size);
 
@@ -68,14 +63,12 @@ public class BaiVietcontroller {
     }
 
     @GetMapping("/chamsocthucung")
-    public String hienThiChamSocThuCung(
-        @RequestParam(defaultValue = "0") int page,
-        @RequestParam(defaultValue = "") String keyword,
-        Model model
-    ) {
+    public String hienThiChamSocThuCung(@RequestParam(defaultValue = "0") int page,
+                                        @RequestParam(defaultValue = "") String keyword,
+                                        Model model) {
         Page<BaiViet> baiVietPage = keyword.isBlank()
-            ? baiVietService.getBaiVietTheoLoai("CSTC", page, 6)
-            : baiVietService.searchBaiViet(keyword, page, 6);
+                ? baiVietService.getBaiVietTheoLoai("CSTC", page, 6)
+                : baiVietService.searchBaiViet(keyword, page, 6);
 
         model.addAttribute("baiVietPage", baiVietPage);
         model.addAttribute("keyword", keyword);
@@ -84,14 +77,12 @@ public class BaiVietcontroller {
     }
 
     @GetMapping("/kinhnghiemnuoimeo")
-    public String hienThiKinhNghiemMeo(
-        @RequestParam(defaultValue = "0") int page,
-        @RequestParam(defaultValue = "") String keyword,
-        Model model
-    ) {
+    public String hienThiKinhNghiemMeo(@RequestParam(defaultValue = "0") int page,
+                                       @RequestParam(defaultValue = "") String keyword,
+                                       Model model) {
         Page<BaiViet> baiVietPage = keyword.isBlank()
-            ? baiVietService.getBaiVietTheoLoai("KNM", page, 6)
-            : baiVietService.searchBaiViet(keyword, page, 6);
+                ? baiVietService.getBaiVietTheoLoai("KNM", page, 6)
+                : baiVietService.searchBaiViet(keyword, page, 6);
 
         model.addAttribute("baiVietPage", baiVietPage);
         model.addAttribute("keyword", keyword);
@@ -99,17 +90,14 @@ public class BaiVietcontroller {
         return "kinhnghiemnuoimeo";
     }
 
-
     @GetMapping("/quanlibaiviet")
-    public String hienThiDanhSach(
-        @RequestParam(defaultValue = "0") int page,
-        @RequestParam(defaultValue = "6") int size,
-        @RequestParam(defaultValue = "") String keyword,
-        Model model
-    ) {
+    public String hienThiDanhSach(@RequestParam(defaultValue = "0") int page,
+                                  @RequestParam(defaultValue = "6") int size,
+                                  @RequestParam(defaultValue = "") String keyword,
+                                  Model model) {
         Page<BaiViet> baiVietPage = keyword.isBlank()
-            ? baiVietService.getAllBaiViet(page, size)
-            : baiVietService.searchBaiViet(keyword, page, size);
+                ? baiVietService.getAllBaiViet(page, size)
+                : baiVietService.searchBaiViet(keyword, page, size);
 
         model.addAttribute("baiVietPage", baiVietPage);
         model.addAttribute("keyword", keyword);
@@ -117,7 +105,6 @@ public class BaiVietcontroller {
 
         return "Admin/quanlibaiviet";
     }
-
 
     @GetMapping("/baiviet/them")
     public String hienThiFormThem(Model model) {
@@ -141,12 +128,9 @@ public class BaiVietcontroller {
         return "Admin/editbaiviet";
     }
 
-
     @PostMapping("/baiviet/capnhat")
-    public String capNhatBaiViet(
-            @ModelAttribute BaiViet baiViet,
-            @RequestParam(value = "hinhAnhMoi", required = false) MultipartFile hinhAnhMoi
-    ) {
+    public String capNhatBaiViet(@ModelAttribute BaiViet baiViet,
+                                 @RequestParam(value = "hinhAnhMoi", required = false) MultipartFile hinhAnhMoi) {
         if (hinhAnhMoi != null && !hinhAnhMoi.isEmpty()) {
             String tenFileMoi = luuFileAnh(hinhAnhMoi);
             baiViet.setHinhAnh(tenFileMoi);
@@ -162,33 +146,33 @@ public class BaiVietcontroller {
         return "redirect:/quanlibaiviet";
     }
 
-
     @GetMapping("/baiviet/xoa/{maBaiViet}")
     public String xoaBaiViet(@PathVariable String maBaiViet) {
         baiVietService.xoaBaiViet(maBaiViet);
         return "redirect:/quanlibaiviet";
     }
 
- 
     private String luuFileAnh(MultipartFile file) {
         if (file.isEmpty()) {
             return null;
         }
         try {
-        	String uploadDir = "uploads/images/";
-
+            String uploadDir = "uploads/img/";
             File dir = new File(uploadDir);
             if (!dir.exists()) {
                 dir.mkdirs();
             }
+
             String originalFilename = file.getOriginalFilename();
             String extension = "";
             if (originalFilename != null && originalFilename.contains(".")) {
                 extension = originalFilename.substring(originalFilename.lastIndexOf("."));
             }
+
             String newFilename = UUID.randomUUID().toString() + extension;
             String filePath = uploadDir + newFilename;
             Files.copy(file.getInputStream(), Paths.get(filePath), StandardCopyOption.REPLACE_EXISTING);
+
             return newFilename;
         } catch (IOException e) {
             e.printStackTrace();
