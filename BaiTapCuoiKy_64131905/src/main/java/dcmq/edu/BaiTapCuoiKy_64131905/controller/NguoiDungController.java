@@ -130,7 +130,7 @@ public class NguoiDungController {
 
   
     @GetMapping("/nguoidung/sua/{id}")
-    public String hienThiFormSuaNguoiDung(@PathVariable("id") Integer id, Model model, HttpSession session) {
+    public String hienThiFormSuaNguoiDung(@PathVariable("id") String id, Model model, HttpSession session) {
         NguoiDung admin = (NguoiDung) session.getAttribute("nguoiDung");
         if (admin == null || admin.getRole() != 0) {
             return "redirect:/dangnhap";
@@ -174,7 +174,7 @@ public class NguoiDungController {
 
 
     @GetMapping("/nguoidung/xoa/{id}")
-    public String xoaNguoiDung(@PathVariable("id") Integer id,
+    public String xoaNguoiDung(@PathVariable("id") String id,
                                HttpSession session) {
         NguoiDung admin = (NguoiDung) session.getAttribute("nguoiDung");
         if (admin == null || admin.getRole() != 0) {

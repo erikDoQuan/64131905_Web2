@@ -11,7 +11,7 @@ import org.springframework.data.domain.Pageable;
 
 import dcmq.edu.BaiTapCuoiKy_64131905.model.NguoiDung;
 
-public interface NguoiDungRepository extends JpaRepository<NguoiDung, Integer> {
+public interface NguoiDungRepository extends JpaRepository<NguoiDung, String> {
 
     Optional<NguoiDung> findByEmail(String email);
 

@@ -46,11 +46,11 @@ public class NguoiDungService {
     public List<NguoiDung> findAll() {
         return nguoiDungRepository.findAll();
     }
-    public Optional<NguoiDung> timTheoId(int id) {
+    public Optional<NguoiDung> timTheoId(String id) {
         return nguoiDungRepository.findById(id);
     }
 
-    public void xoaTheoId(int id) {
+    public void xoaTheoId(String id) {
         nguoiDungRepository.deleteById(id);
     }
 

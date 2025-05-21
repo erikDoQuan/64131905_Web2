@@ -4,9 +4,10 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "NguoiDung")
 public class NguoiDung {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer nguoiDungID;
+	@Id
+	
+	private String nguoiDungID;
+
 
     @Column(nullable = false, length = 100)
     private String hoTen;
@@ -27,10 +28,10 @@ public class NguoiDung {
     private Integer role; // 0: admin, 1: người dùng
 
     // Getters và setters
-    public Integer getNguoiDungID() {
+    public String getNguoiDungID() {
         return nguoiDungID;
     }
-    public void setNguoiDungID(Integer nguoiDungID) {
+    public void setNguoiDungID(String nguoiDungID) {
         this.nguoiDungID = nguoiDungID;
     }
     public String getHoTen() {
