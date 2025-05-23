@@ -14,44 +14,60 @@
 <div th:replace="LayoutUser :: pHeader"></div>
 
 <!-- Nội dung -->
-<div class="container bai-viet-container">
+<div class="container bai-viet-container mt-4">
+    <div class="row">
+        <!-- Bên trái: Nội dung bài viết -->
+        <div class="col-md-8">
 
-    <!-- Hình ảnh -->
-    <div class="image-container text-center mb-4" th:if="${baiViet.hinhAnh != null and baiViet.hinhAnh != ''}">
-        <img th:src="@{'/images/' + ${baiViet.hinhAnh}}" alt="Hình ảnh bài viết"
-             class="img-fluid featured-image" />
-    </div>
-
-    <!-- Breadcrumb -->
-    <div class="breadcrumb-custom text-uppercase text-muted text-center small">
-        BLOG THÚ CƯNG / <span th:text="${baiViet.loaiBaiViet.tenLoai}">Loại bài viết</span>
-    </div>
-
-    <!-- Tiêu đề + Ngày đăng -->
-    <h1 class="title text-center mt-2 mb-1" th:text="${baiViet.tieuDe}">Tiêu đề bài viết</h1>
-    <p class="text-center text-muted" th:text="${#temporals.format(baiViet.ngayDang, 'MMMM dd, yyyy')}">Ngày đăng</p>
-
-    <!-- Nội dung -->
-    <div class="noi-dung-bai-viet" th:utext="${baiViet.noiDung}">
-        Nội dung bài viết sẽ hiển thị ở đây.
-    </div>
-
-    <!-- Bình luận -->
-    <div class="comments-section mt-5">
-        <h4 class="mb-3">Để lại bình luận</h4>
-        <form>
-            
-            <div class="mb-3">
-                <label for="noiDungBinhLuan" class="form-label">Bình luận</label>
-                <textarea class="form-control" id="noiDungBinhLuan" rows="4" placeholder="Viết bình luận của bạn..."></textarea>
+            <!-- Hình ảnh -->
+            <div class="image-container text-center mb-4" th:if="${baiViet.hinhAnh != null and baiViet.hinhAnh != ''}">
+                <img th:src="@{'/images/' + ${baiViet.hinhAnh}}" alt="Hình ảnh bài viết"
+                     class="img-fluid featured-image" />
             </div>
-            <button type="submit" class="btn btn-primary">Gửi bình luận</button>
-        </form>
-    </div>
 
-    <!-- Nút quay lại -->
-    <div class="mt-5 text-center">
-        <a href="/trangchu" class="btn btn-outline-secondary">← Quay lại trang chủ</a>
+            <!-- Breadcrumb -->
+            <div class="breadcrumb-custom text-uppercase text-muted text-center small">
+                BLOG THÚ CƯNG / <span th:text="${baiViet.loaiBaiViet.tenLoai}">Loại bài viết</span>
+            </div>
+
+            <!-- Tiêu đề + Ngày đăng -->
+            <h1 class="title text-center mt-2 mb-1" th:text="${baiViet.tieuDe}">Tiêu đề bài viết</h1>
+            <p class="text-center text-muted" th:text="${#temporals.format(baiViet.ngayDang, 'MMMM dd, yyyy')}">Ngày đăng</p>
+
+            <!-- Nội dung -->
+            <div class="noi-dung-bai-viet" th:utext="${baiViet.noiDung}">
+                Nội dung bài viết sẽ hiển thị ở đây.
+            </div>
+
+            <!-- Bình luận -->
+            <div class="comments-section mt-5">
+                <h4 class="mb-3">Bình luận</h4>
+                <div style="max-height: 500px; overflow-y: auto; border: 1px solid #ddd; padding: 10px; margin-bottom: 20px;">
+                    <div th:if="${#lists.isEmpty(danhSachBinhLuan)}">
+                        <p>Chưa có bình luận nào.</p>
+                    </div>
+                    <div th:each="bl : ${danhSachBinhLuan}">
+                        <div class="mb-3 border-bottom pb-2">
+                            <p><strong th:text="${bl.nguoiDung.hoTen}">Người dùng</strong> 
+                                <small class="text-muted" th:text="${#temporals.format(bl.ngayBinhLuan, 'dd/MM/yyyy HH:mm')}">Ngày giờ</small>
+                            </p>
+                            <p th:text="${bl.noiDung}">Nội dung bình luận...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h5>Để lại bình luận</h5>
+                <form th:action="@{/baiviet/{maBaiViet}/binhluan(maBaiViet=${baiViet.maBaiViet})}" th:object="${binhLuanMoi}" method="post">
+                    <textarea class="form-control" th:field="*{noiDung}" rows="4" placeholder="Viết bình luận của bạn..."></textarea>
+                    <button type="submit" class="btn btn-primary mt-2">Gửi bình luận</button>
+                </form>
+            </div>
+
+            <!-- Nút quay lại -->
+            <div class="mt-5 text-center">
+                <a href="/trangchu" class="btn btn-outline-secondary">← Quay lại trang chủ</a>
+            </div>
+        </div>
     </div>
 </div>
 

@@ -1,11 +1,7 @@
 package dcmq.edu.BaiTapCuoiKy_64131905.controller;
 
 import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
-import java.util.UUID;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -23,6 +19,7 @@ public class BaiVietcontroller {
     @Autowired
     private BaiVietService baiVietService;
 
+   
     @GetMapping("/trangchu")
     public String trangChu(Model model,
                            @RequestParam(defaultValue = "0") int page,
@@ -39,14 +36,6 @@ public class BaiVietcontroller {
         return "trangchu";
     }
 
-    @GetMapping("/baiviet/{maBaiViet}")
-    public String xemChiTietBaiViet(@PathVariable String maBaiViet, Model model) {
-        BaiViet baiViet = baiVietService.layBaiVietTheoMa(maBaiViet);
-        if (baiViet == null) return "redirect:/trangchu";
-
-        model.addAttribute("baiViet", baiViet);
-        return "xemchitiet";
-    }
 
     @GetMapping("/kinhnghiemnuoicho")
     public String kinhNghiemNuoiCho(Model model,
@@ -90,6 +79,7 @@ public class BaiVietcontroller {
         return "kinhnghiemnuoimeo";
     }
 
+ 
     @GetMapping("/quanlibaiviet")
     public String hienThiDanhSach(@RequestParam(defaultValue = "0") int page,
                                   @RequestParam(defaultValue = "6") int size,
@@ -109,6 +99,7 @@ public class BaiVietcontroller {
     @GetMapping("/baiviet/them")
     public String hienThiFormThem(Model model) {
         model.addAttribute("baiViet", new BaiViet());
+        model.addAttribute("danhSachLoai", baiVietService.getAllLoaiBaiViet());
         return "baiviet_form";
     }
 
@@ -135,13 +126,6 @@ public class BaiVietcontroller {
             String tenFileMoi = luuFileAnh(hinhAnhMoi);
             baiViet.setHinhAnh(tenFileMoi);
         }
-
-        baiVietService.luuBaiViet(baiViet);
-        return "redirect:/quanlibaiviet";
-    }
-
-    @PostMapping("/baiviet/sua")
-    public String suaBaiViet(@ModelAttribute BaiViet baiViet) {
         baiVietService.luuBaiViet(baiViet);
         return "redirect:/quanlibaiviet";
     }
@@ -169,12 +153,12 @@ public class BaiVietcontroller {
                 extension = originalFilename.substring(originalFilename.lastIndexOf("."));
             }
 
-            String newFilename = UUID.randomUUID().toString() + extension;
+            String newFilename = java.util.UUID.randomUUID().toString() + extension;
             String filePath = uploadDir + newFilename;
-            Files.copy(file.getInputStream(), Paths.get(filePath), StandardCopyOption.REPLACE_EXISTING);
+            java.nio.file.Files.copy(file.getInputStream(), java.nio.file.Paths.get(filePath), java.nio.file.StandardCopyOption.REPLACE_EXISTING);
 
             return newFilename;
-        } catch (IOException e) {
+        } catch (java.io.IOException e) {
             e.printStackTrace();
             return null;
         }

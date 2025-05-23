@@ -11,7 +11,7 @@
 <div th:fragment="pHeader">
     <nav class="navbar navbar-expand-lg bg-petlove navbar-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" th:href="@{/}">🐾 PetLove</a>
+            <a class="navbar-brand" th:href="@{/}">🐾 PetLove- Quản Lí</a>
             <div class="collapse navbar-collapse justify-content-end">
                 <ul class="navbar-nav">
                     <li class="nav-item" th:if="${tenNguoiDung != null}">
@@ -47,7 +47,7 @@
                 <a th:href="@{/quanlinguoidung}" class="nav-link">Quản lý nhân viên</a>
             </li>
             <li class="item diet">
-                <a th:href="@{/chamsocthucung}" class="nav-link">Xem đánh giá</a>
+                <a th:href="@{/quanlibinhluan}" class="nav-link">Xem đánh giá</a>
             </li>
         </ul>
     </nav>
