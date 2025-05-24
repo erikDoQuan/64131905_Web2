@@ -9,13 +9,13 @@
 </head>
 <body class="d-flex flex-column min-vh-100">
 
-
+<!-- Header -->
 <div th:replace="LayoutUser :: pHeader"></div>
-
 
 <div class="container my-5">
     <div class="row justify-content-center align-items-center">
-    
+
+        <!-- Cột trái: Form đăng ký -->
         <div class="col-md-6">
             <div class="login-form-wrapper mx-auto">
                 <h3 class="text-center mb-4">Đăng Ký</h3>
@@ -23,29 +23,28 @@
                 <div th:if="${loiDangKy}" class="alert alert-danger" th:text="${loiDangKy}"></div>
 
                 <form th:action="@{/dangky}" method="post">
-                    <div class="mb-3 form-input-custom">
+                    <div class="mb-3">
                         <label for="hoTen" class="form-label">Họ và Tên:</label>
                         <input type="text" id="hoTen" name="hoTen" class="form-control" placeholder="Nhập họ tên" required />
                     </div>
-                    <div class="mb-3 form-input-custom">
+                    <div class="mb-3">
                         <label for="email" class="form-label">Email:</label>
                         <input type="email" id="email" name="email" class="form-control" placeholder="Nhập email" required />
                     </div>
-                    <div class="mb-3 form-input-custom">
+                    <div class="mb-3">
                         <label for="matKhau" class="form-label">Mật khẩu:</label>
                         <input type="password" id="matKhau" name="matKhau" class="form-control" placeholder="Nhập mật khẩu" required />
                     </div>
-                    <div class="mb-3 form-input-custom">
+                    <div class="mb-3">
                         <label for="soDienThoai" class="form-label">Số điện thoại:</label>
                         <input type="text" id="soDienThoai" name="soDienThoai" class="form-control" placeholder="Nhập số điện thoại" />
                     </div>
-                    <div class="mb-3 form-input-custom">
+                    <div class="mb-3">
                         <label for="diaChi" class="form-label">Địa chỉ:</label>
                         <input type="text" id="diaChi" name="diaChi" class="form-control" placeholder="Nhập địa chỉ" />
                     </div>
-
-                    <div class="d-grid form-input-custom">
-                        <button type="submit" class="btn btn-register">Đăng Ký</button>
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-register btn-primary">Đăng Ký</button>
                     </div>
                 </form>
 
@@ -58,7 +57,7 @@
 
         <!-- Cột phải: Hình ảnh -->
         <div class="col-md-6 d-none d-md-block">
-            <img src="/images/dangnhapjpg.jpg" alt="Hình ảnh thú cưng" class="login-image" />
+            <img src="/images/dangnhapjpg.jpg" alt="Hình ảnh thú cưng" class="img-fluid rounded shadow-sm login-image" />
         </div>
     </div>
 </div>

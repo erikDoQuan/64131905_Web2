@@ -53,5 +53,10 @@ public class NguoiDungService {
     public void xoaTheoId(String id) {
         nguoiDungRepository.deleteById(id);
     }
+    public String taoMaNguoiDung() {
+        long count = nguoiDungRepository.count() + 1;
+        return String.format("ND%03d", count);
+    }
+
 
 }

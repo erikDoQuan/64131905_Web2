@@ -37,27 +37,30 @@
 </div>
 
 <!-- Sidebar -->
-<div th:fragment="pSidebar">
-    <nav>
-        <ul class="colorful-list">
-            <li class="item all-posts">
-                <a th:href="@{/trangchu}" class="nav-link">Tất cả</a>
-            </li>
-            <li class="item dogs">
-                <a th:href="@{/kinhnghiemnuoicho}" class="nav-link">Kinh nghiệm nuôi chó</a>
-            </li>
-            <li class="item cats">
-                <a th:href="@{/kinhnghiemnuoimeo}" class="nav-link">Kinh nghiệm nuôi mèo</a>
-            </li>
-            <li class="item diet">
-                <a th:href="@{/chamsocthucung}" class="nav-link">Chăm sóc thú cưng</a>
-            </li>
-            <li class="item lifestyle">
-                <a th:href="@{/bai-viet/loai/GioiThieu}" class="nav-link">Giới thiệu</a>
-            </li>
-        </ul>
-    </nav>
+<div style="display: flex; justify-content: center;">
+    <div th:fragment="pSidebar">
+        <nav>
+            <ul class="colorful-list">
+                <li class="item all-posts">
+                    <a th:href="@{/trangchu}" class="nav-link">Tất cả</a>
+                </li>
+                <li class="item dogs">
+                    <a th:href="@{/kinhnghiemnuoicho}" class="nav-link">Kinh nghiệm nuôi chó</a>
+                </li>
+                <li class="item cats">
+                    <a th:href="@{/kinhnghiemnuoimeo}" class="nav-link">Kinh nghiệm nuôi mèo</a>
+                </li>
+                <li class="item diet">
+                    <a th:href="@{/chamsocthucung}" class="nav-link">Chăm sóc thú cưng</a>
+                </li>
+                <li class="item lifestyle">
+                    <a th:href="@{/bai-viet/loai/GioiThieu}" class="nav-link">Giới thiệu</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
 </div>
+
 
 <!-- Footer -->
 <div th:fragment="pFooter">

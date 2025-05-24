@@ -41,7 +41,7 @@ public class BinhLuanController {
         return "xemchitiet";
     }
 
-    // Xử lý thêm bình luận mới
+
     @PostMapping("/baiviet/{maBaiViet}/binhluan")
     public String themBinhLuan(@PathVariable String maBaiViet,
                                @ModelAttribute("binhLuanMoi") BinhLuan binhLuan,
