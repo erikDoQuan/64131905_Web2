@@ -28,33 +28,48 @@
 <!-- Main Content -->
 <div class="container mt-5">
 
-    <!-- Form tìm kiếm -->
-    <form method="get" action="/trangchu" class="mb-4">
-        <div class="input-group">
-            <input type="text" name="keyword" class="form-control" placeholder="Tìm kiếm bài viết..."
-                   th:value="${keyword}" />
-            <button class="btn btn-primary" type="submit">Tìm kiếm</button>
+    <!-- Tiêu đề & Tìm kiếm -->
+    <div class="row align-items-center mb-4">
+        <div class="col-md-4 d-none d-md-block"></div>
+        <div class="col-md-4 text-center mb-3 mb-md-0">
+            <h2 class="fw-bold">BÀI VIẾT NỔI BẬT</h2>
         </div>
-    </form>
+        <div class="col-md-4 text-end">
+            <form method="get" th:action="@{/trangchu}" class="d-inline-block" style="max-width: 300px; width: 100%;">
+                <div class="input-group">
+                    <input type="text" name="keyword" class="form-control" placeholder="Tìm kiếm bài viết..."
+                           th:value="${keyword}" />
+                    <button class="btn btn-primary" type="submit">Tìm kiếm</button>
+                </div>
+            </form>
+        </div>
+    </div>
 
-    <h2 class="mb-4 text-center">BÀI VIẾT NỔI BẬT</h2>
+    <!-- Nội dung chính chia 2 cột -->
+    <div class="row">
+        <!-- Bài viết nổi bật -->
+        <div class="">
+            <div class="row row-cols-1 row-cols-md-3 g-4">
 
-    <!-- Danh sách bài viết -->
-    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-        <div class="col" th:each="baiViet : ${baiVietPage.content}">
-            <div class="card-custom shadow-sm">
-                <img th:if="${baiViet.hinhAnh != null and baiViet.hinhAnh != ''}"
-                     th:src="@{'/images/' + ${baiViet.hinhAnh}}"
-                     alt="Ảnh bài viết" class="card-img-top-custom">
-                <div class="card-body-custom">
-                    <h5 class="card-title-custom" th:text="${baiViet.tieuDe}">Tiêu đề bài viết</h5>
-                    <p class="card-text-custom" th:text="${#strings.abbreviate(baiViet.noiDung, 150)}">
-                        Mô tả ngắn...
-                    </p>
-                    <a class="read-more-link" th:href="@{'/baiviet/' + ${baiViet.maBaiViet}}">Xem chi tiết</a>
+                <div class="col" th:each="baiViet : ${baiVietPage.content}">
+                    <div class="card-custom shadow-sm h-100">
+                        <img th:if="${baiViet.hinhAnh != null and baiViet.hinhAnh != ''}"
+                             th:src="@{'/images/' + ${baiViet.hinhAnh}}"
+                             alt="Ảnh bài viết" class="card-img-top-custom">
+                        <div class="card-body-custom">
+                            <h5 class="card-title-custom" th:text="${baiViet.tieuDe}">Tiêu đề bài viết</h5>
+                            <p class="card-text-custom" th:text="${#strings.abbreviate(baiViet.noiDung, 150)}">
+                                Mô tả ngắn...
+                            </p>
+                            <a class="read-more-link" th:href="@{'/baiviet/' + ${baiViet.maBaiViet}}">Xem chi tiết</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+
+        <!-- Bài viết liên quan -->
+       
     </div>
 
     <!-- Phân trang -->
@@ -62,23 +77,20 @@
         <ul class="pagination justify-content-center">
             <!-- Trang trước -->
             <li class="page-item" th:classappend="${baiVietPage.first} ? 'disabled'">
-                <a class="page-link"
-                   th:href="@{/trangchu(page=${baiVietPage.number - 1}, keyword=${keyword})}" aria-label="Previous">
+                <a class="page-link" th:href="@{/trangchu(page=${baiVietPage.number - 1}, keyword=${keyword})}" aria-label="Previous">
                     <span aria-hidden="true">&laquo;</span>
                 </a>
             </li>
 
-            <!-- Danh sách trang -->
+            <!-- Các số trang -->
             <li class="page-item" th:each="i : ${#numbers.sequence(0, baiVietPage.totalPages - 1)}"
                 th:classappend="${i == baiVietPage.number} ? 'active'">
-                <a class="page-link"
-                   th:href="@{/trangchu(page=${i}, keyword=${keyword})}" th:text="${i + 1}">1</a>
+                <a class="page-link" th:href="@{/trangchu(page=${i}, keyword=${keyword})}" th:text="${i + 1}">1</a>
             </li>
 
             <!-- Trang sau -->
             <li class="page-item" th:classappend="${baiVietPage.last} ? 'disabled'">
-                <a class="page-link"
-                   th:href="@{/trangchu(page=${baiVietPage.number + 1}, keyword=${keyword})}" aria-label="Next">
+                <a class="page-link" th:href="@{/trangchu(page=${baiVietPage.number + 1}, keyword=${keyword})}" aria-label="Next">
                     <span aria-hidden="true">&raquo;</span>
                 </a>
             </li>

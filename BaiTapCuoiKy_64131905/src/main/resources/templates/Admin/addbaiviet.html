@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Thêm Bài Viết - PetLove</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/quanlibaiviet.css">
+    <link rel="stylesheet" href="/css/LayoutAdmin.css">
+
+    <!-- Thêm CKEditor 5 -->
+    <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
+</head>
+<body>
+
+<!-- Header và Sidebar -->
+<div th:replace="Admin/LayoutAdmin :: pHeader"></div>
+<div th:replace="Admin/LayoutAdmin :: pSidebar"></div>
+
+<!-- Nội dung chính -->
+<div class="container mt-5">
+    <h2 class="mb-4">Thêm Bài Viết</h2>
+
+    <form th:action="@{/baiviet/luu}" th:object="${baiViet}" method="post" enctype="multipart/form-data">
+        <!-- Tiêu đề -->
+        <div class="mb-3">
+            <label for="tieuDe" class="form-label">Tiêu Đề</label>
+            <input type="text" th:field="*{tieuDe}" class="form-control" id="tieuDe" required>
+        </div>
+
+        <!-- Nội dung -->
+        <div class="mb-3">
+            <label for="content" class="form-label">Nội Dung</label>
+            <textarea th:field="*{noiDung}" class="form-control" id="content" rows="6" required></textarea>
+        </div>
+
+        <!-- Hình ảnh -->
+        <div class="mb-3">
+            <label for="hinhAnhMoi" class="form-label">Hình Ảnh</label>
+            <input type="file" name="hinhAnhMoi" class="form-control" id="hinhAnhMoi" required>
+        </div>
+
+        <!-- Ngày đăng -->
+        <div class="mb-3">
+            <label for="ngayDang" class="form-label">Ngày Đăng</label>
+            <input type="datetime-local" th:field="*{ngayDang}" class="form-control" id="ngayDang" required>
+        </div>
+
+        <!-- Loại bài viết -->
+        <div class="mb-3">
+            <label for="loaiBaiViet" class="form-label">Loại Bài Viết</label>
+            <select th:field="*{loaiBaiViet.maLoai}" class="form-select" id="loaiBaiViet" required>
+                <option value="">-- Chọn loại bài viết --</option>
+                <option th:each="loai : ${danhSachLoai}"
+                        th:value="${loai.maLoai}"
+                        th:text="${loai.tenLoai}"></option>
+            </select>
+        </div>
+
+        <!-- Nút lưu và hủy -->
+        <button type="submit" class="btn btn-primary">Lưu</button>
+        <a th:href="@{/quanlibaiviet}" class="btn btn-secondary ms-2">Hủy</a>
+    </form>
+</div>
+
+<!-- Footer -->
+<div th:replace="Admin/LayoutAdmin :: pFooter"></div>
+
+<!-- Script Bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- CKEditor script -->
+<script>
+  ClassicEditor
+    .create(document.querySelector('#content'))
+    .then(editor => {
+      editor.ui.view.editable.element.style.height = '400px';
+    })
+    .catch(error => {
+      console.error(error);
+    });
+</script>
+
+</body>
+</html>

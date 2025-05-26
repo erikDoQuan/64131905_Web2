@@ -13,7 +13,27 @@
 <div th:fragment="pHeader">
     <nav class="navbar navbar-expand-lg bg-petlove navbar-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" th:href="@{/}">🐾 PetLove</a>
+            <a class="navbar-brand" th:href="@{/}">
+    <img th:src="@{/images/logo.jpg}" alt="PETLOVE Logo" style="height:40px;">
+</a>
+
+                     <ul class="colorful-list">
+                <li class="item all-posts">
+                    <a th:href="@{/trangchu}" class="nav-link">Tất cả</a>
+                </li>
+                <li class="item dogs">
+                    <a th:href="@{/kinhnghiemnuoicho}" class="nav-link">Kinh nghiệm nuôi chó</a>
+                </li>
+                <li class="item cats">
+                    <a th:href="@{/kinhnghiemnuoimeo}" class="nav-link">Kinh nghiệm nuôi mèo</a>
+                </li>
+                <li class="item diet">
+                    <a th:href="@{/chamsocthucung}" class="nav-link">Chăm sóc thú cưng</a>
+                </li>
+                <li class="item lifestyle">
+                    <a th:href="@{/bai-viet/loai/GioiThieu}" class="nav-link">Giới thiệu</a>
+                </li>
+            </ul>
             <div class="collapse navbar-collapse justify-content-end">
                 <ul class="navbar-nav">
     <li class="nav-item" th:if="${tenNguoiDung != null}">
@@ -40,23 +60,7 @@
 <div style="display: flex; justify-content: center;">
     <div th:fragment="pSidebar">
         <nav>
-            <ul class="colorful-list">
-                <li class="item all-posts">
-                    <a th:href="@{/trangchu}" class="nav-link">Tất cả</a>
-                </li>
-                <li class="item dogs">
-                    <a th:href="@{/kinhnghiemnuoicho}" class="nav-link">Kinh nghiệm nuôi chó</a>
-                </li>
-                <li class="item cats">
-                    <a th:href="@{/kinhnghiemnuoimeo}" class="nav-link">Kinh nghiệm nuôi mèo</a>
-                </li>
-                <li class="item diet">
-                    <a th:href="@{/chamsocthucung}" class="nav-link">Chăm sóc thú cưng</a>
-                </li>
-                <li class="item lifestyle">
-                    <a th:href="@{/bai-viet/loai/GioiThieu}" class="nav-link">Giới thiệu</a>
-                </li>
-            </ul>
+   
         </nav>
     </div>
 </div>

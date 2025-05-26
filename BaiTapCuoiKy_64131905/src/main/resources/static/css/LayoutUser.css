@@ -35,7 +35,7 @@
   justify-content: center;
   gap: 15px;
   padding: 10px;
-  background-color: #fff;
+  background-color: #3c1053;
   list-style: none;
   margin: 0 auto;
   white-space: nowrap;
@@ -58,33 +58,33 @@
 }
 
 .colorful-list .all-posts {
-  background-color: #9999ff;
+  background-color: #3c1053;
   border-color: #000000;
   color: black;
 }
 
 .colorful-list .dogs {
-  background-color: #66b3e6;
+  background-color: #3c1053;
   color: black;
 }
 
 .colorful-list .cats {
-  background-color: #99bb66;
+  background-color: #3c1053;
   color: black;
 }
 
 .colorful-list .diet {
-  background-color: #d080a6;
+  background-color: #3c1053;
   color: black;
 }
 
 .colorful-list .lifestyle {
-  background-color: #ff9900;
+  background-color: #3c1053;
   color: black;
 }
 
 .colorful-list .vet {
-  background-color: #6644cc;
+  background-color: #3c1053;
   color: white;
 }
 

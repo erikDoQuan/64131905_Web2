@@ -15,4 +15,7 @@ public interface BaiVietRepository extends JpaRepository<BaiViet, String> {
     Page<BaiViet> findByLoaiBaiViet_MaLoai(String maLoai, Pageable pageable);
 
     Page<BaiViet> findByLoaiBaiViet_MaLoaiOrderByNgayDangDesc(String maLoai, Pageable pageable);
+
+    // Thêm hàm tìm kiếm theo loại + từ khóa, sắp xếp ngày đăng giảm dần
+    Page<BaiViet> findByLoaiBaiViet_MaLoaiAndTieuDeContainingIgnoreCaseOrderByNgayDangDesc(String maLoai, String keyword, Pageable pageable);
 }
