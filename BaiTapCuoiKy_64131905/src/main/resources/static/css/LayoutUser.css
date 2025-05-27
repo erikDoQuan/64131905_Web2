@@ -92,3 +92,17 @@
   border-color: #333;
   filter: brightness(110%);
 }
+/* Có thể thêm vào LayoutUser.css */
+.input-group .form-control {
+    background-color: #fff;
+    border: 1px solid #ccc;
+}
+
+.input-group .btn {
+    background-color: #ffffff;
+    color: #000;
+    border: 1px solid #ccc;
+}
+.input-group .btn:hover {
+    background-color: #eee;
+}

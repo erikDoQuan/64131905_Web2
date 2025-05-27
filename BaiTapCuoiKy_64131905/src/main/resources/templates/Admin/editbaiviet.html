@@ -36,16 +36,17 @@
             <textarea th:field="*{noiDung}" class="form-control" id="noiDung" rows="6" required></textarea>
         </div>
 
-        <!-- Hình ảnh hiện tại -->
-        <div class="mb-3" th:if="*{hinhAnh} != null">
+        <!-- Hiển thị hình ảnh hiện tại nếu có -->
+        <div class="mb-3" th:if="${baiViet.hinhAnh} != null and ${baiViet.hinhAnh} != ''">
             <label class="form-label">Hình Ảnh Hiện Tại</label><br>
-            <img th:src="@{'/uploads/images/' + *{hinhAnh}}" alt="Hình ảnh hiện tại" class="img-thumbnail mb-2" style="max-height: 200px;">
+            <img th:src="${duongDanAnh}" alt="Hình ảnh hiện tại" class="img-thumbnail mb-2" style="max-height: 200px;">
         </div>
 
-        <!-- Thay đổi hình ảnh -->
+        <!-- Chọn hình ảnh mới -->
         <div class="mb-3">
-            <label for="hinhAnhMoi" class="form-label">Thay Đổi Hình Ảnh</label>
-            <input type="file" name="hinhAnhMoi" class="form-control" id="hinhAnhMoi">
+            <label for="hinhAnhMoi" class="form-label">Chọn Ảnh Mới</label>
+            <input type="file" name="hinhAnhMoi" class="form-control" id="hinhAnhMoi" accept="image/*">
+            <small class="form-text text-muted">Nếu bạn không chọn ảnh mới, ảnh hiện tại sẽ được giữ.</small>
         </div>
 
         <!-- Ngày đăng -->

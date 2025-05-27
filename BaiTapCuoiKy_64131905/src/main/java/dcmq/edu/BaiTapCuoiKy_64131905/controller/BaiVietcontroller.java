@@ -23,6 +23,8 @@ public class BaiVietcontroller {
     @Autowired
     private BaiVietService baiVietService;
 
+    private final String imageDir = System.getProperty("user.dir") + "/src/main/resources/static/images/";
+
     // Trang chủ
     @GetMapping({"/", "/trangchu"})
     public String trangChu(Model model,
@@ -144,12 +146,19 @@ public class BaiVietcontroller {
         BaiViet baiViet = baiVietService.layBaiVietTheoMa(maBaiViet);
         if (baiViet == null) return "redirect:/quanlibaiviet";
 
+        // Đường dẫn ảnh luôn là /images/{tenFile}
+        String duongDanAnh = baiViet.getHinhAnh() != null && !baiViet.getHinhAnh().isEmpty()
+                ? "/images/" + baiViet.getHinhAnh()
+                : "/images/default.jpg";
+
         model.addAttribute("baiViet", baiViet);
         model.addAttribute("danhSachLoai", baiVietService.getAllLoaiBaiViet());
+        model.addAttribute("duongDanAnh", duongDanAnh);
+
         return "Admin/editbaiviet";
     }
 
-    // Xử lý cập nhật
+    // Xử lý cập nhật bài viết
     @PostMapping("/baiviet/capnhat")
     public String capNhatBaiViet(@ModelAttribute BaiViet baiViet,
                                  @RequestParam(value = "hinhAnhMoi", required = false) MultipartFile hinhAnhMoi) {
@@ -172,8 +181,8 @@ public class BaiVietcontroller {
     private String luuFileAnh(MultipartFile file) {
         if (file.isEmpty()) return null;
         try {
-            String uploadDir = "uploads/img/";
-            File dir = new File(uploadDir);
+            // Lưu trong thư mục static/images
+            File dir = new File(imageDir);
             if (!dir.exists()) dir.mkdirs();
 
             String originalFilename = file.getOriginalFilename();
@@ -182,7 +191,7 @@ public class BaiVietcontroller {
                     : "";
 
             String newFilename = UUID.randomUUID().toString() + extension;
-            String filePath = uploadDir + newFilename;
+            String filePath = imageDir + newFilename;
             Files.copy(file.getInputStream(), Paths.get(filePath), StandardCopyOption.REPLACE_EXISTING);
             return newFilename;
         } catch (Exception e) {
