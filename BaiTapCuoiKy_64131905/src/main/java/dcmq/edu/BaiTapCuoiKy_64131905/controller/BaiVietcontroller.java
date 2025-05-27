@@ -4,11 +4,13 @@ import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.UUID;
 
+import org.jsoup.Jsoup;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -37,10 +39,11 @@ public class BaiVietcontroller {
         Page<BaiViet> baiVietPage = keyword.isEmpty()
                 ? baiVietService.getAllBaiViet(page, size)
                 : baiVietService.searchBaiViet(keyword, page, size);
-
+        Map<String, String> truncatedContentMap = generateTruncatedContent(baiVietPage);
         model.addAttribute("baiVietPage", baiVietPage);
         model.addAttribute("currentPage", page);
         model.addAttribute("keyword", keyword);
+        model.addAttribute("truncatedContentMap", truncatedContentMap); 
         return "trangchu";
     }
 
@@ -131,13 +134,36 @@ public class BaiVietcontroller {
     // Xử lý thêm bài viết
     @PostMapping("/baiviet/luu")
     public String themBaiViet(@ModelAttribute BaiViet baiViet,
-                              @RequestParam("hinhAnhMoi") MultipartFile hinhAnhMoi) {
-        if (!hinhAnhMoi.isEmpty()) {
-            String tenFile = luuFileAnh(hinhAnhMoi);
-            baiViet.setHinhAnh(tenFile);
+                              @RequestParam("hinhAnhMoi") MultipartFile hinhAnhMoi,
+                              Model model) {
+        try {
+            // Sinh maBaiViet nếu chưa có
+            if (baiViet.getMaBaiViet() == null || baiViet.getMaBaiViet().isEmpty()) {
+                baiViet.setMaBaiViet(UUID.randomUUID().toString().substring(0, 10));
+            }
+
+            // Xử lý ảnh
+            if (!hinhAnhMoi.isEmpty()) {
+                String tenFile = luuFileAnh(hinhAnhMoi);
+                if (tenFile != null) {
+                    baiViet.setHinhAnh(tenFile);
+                } else {
+                    baiViet.setHinhAnh("default.jpg"); // Ảnh mặc định nếu lưu ảnh thất bại
+                }
+            } else {
+                baiViet.setHinhAnh("default.jpg"); // Ảnh mặc định nếu không upload
+            }
+
+            // Lưu bài viết
+            baiVietService.luuBaiViet(baiViet);
+            return "redirect:/quanlibaiviet";
+        } catch (Exception e) {
+            e.printStackTrace();
+            model.addAttribute("error", "Lỗi khi lưu bài viết: " + e.getMessage());
+            model.addAttribute("baiViet", baiViet);
+            model.addAttribute("danhSachLoai", baiVietService.getAllLoaiBaiViet());
+            return "Admin/addbaiviet"; // Trở lại form với thông báo lỗi
         }
-        baiVietService.luuBaiViet(baiViet);
-        return "redirect:/quanlibaiviet";
     }
 
     // Hiển thị form sửa
@@ -164,7 +190,9 @@ public class BaiVietcontroller {
                                  @RequestParam(value = "hinhAnhMoi", required = false) MultipartFile hinhAnhMoi) {
         if (hinhAnhMoi != null && !hinhAnhMoi.isEmpty()) {
             String tenFileMoi = luuFileAnh(hinhAnhMoi);
-            baiViet.setHinhAnh(tenFileMoi);
+            if (tenFileMoi != null) {
+                baiViet.setHinhAnh(tenFileMoi);
+            }
         }
         baiVietService.luuBaiViet(baiViet);
         return "redirect:/quanlibaiviet";
@@ -176,6 +204,22 @@ public class BaiVietcontroller {
         baiVietService.xoaBaiViet(maBaiViet);
         return "redirect:/quanlibaiviet";
     }
+    private Map<String, String> generateTruncatedContent(Page<BaiViet> baiVietPage) {
+        Map<String, String> truncatedContentMap = new LinkedHashMap<>();
+        for (BaiViet bv : baiVietPage.getContent()) {
+            // Loại bỏ thẻ HTML bằng Jsoup
+            String textOnly = Jsoup.parse(bv.getNoiDung()).text();
+            String truncated;
+            if (textOnly.length() > 150) {
+                truncated = textOnly.substring(0, 150) + "...";
+            } else {
+                truncated = textOnly;
+            }
+            truncatedContentMap.put(bv.getMaBaiViet(), truncated);
+        }
+        return truncatedContentMap;
+    }
+    
 
     // Hàm phụ trợ lưu file ảnh
     private String luuFileAnh(MultipartFile file) {

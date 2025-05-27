@@ -1,38 +1,69 @@
+/* Container bài viết */
 .bai-viet-container {
-    max-width: 1000px;
-    margin-top: 50px;
-    margin-bottom: 80px;
+    max-width: 900px;
+    margin: 50px auto 80px;
+    padding: 0 15px;
 }
 
-.featured-image {
-    width: 100%;
-    max-height: 500px;
-    object-fit: cover;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
+/* Breadcrumb căn giữa */
 .breadcrumb-custom {
     font-size: 0.9rem;
     color: #888;
     margin-bottom: 10px;
+    text-align: center;
 }
 
+/* Tiêu đề căn giữa */
 .title {
     font-weight: 700;
     font-size: 2rem;
     color: #333;
+    text-align: center;
 }
 
+/* Ngày đăng căn giữa */
+.text-muted {
+    text-align: center;
+}
+
+/* Nội dung bài viết */
+.noi-dung-bai-viet {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #333;
+    text-align: left; /* Văn bản căn trái dễ đọc */
+    margin-top: 1rem;
+}
+
+/* Ảnh trong nội dung bài viết */
+.noi-dung-bai-viet img {
+    display: block;
+    margin: 20px auto; /* Ảnh căn giữa */
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.noi-dung-bai-viet img:hover {
+    transform: scale(1.05);
+    cursor: zoom-in;
+}
+
+/* Bình luận */
 .comments-section {
     background-color: #f9f9f9;
-    padding: 15px;
-    border-radius: 8px;
+    padding: 20px;
+    border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    margin-top: 30px;
 }
 
 .comments-section h4 {
     font-weight: bold;
+    margin-bottom: 15px;
 }
 
 .comments-section .form-control {
@@ -42,20 +73,33 @@
 .comments-section .btn {
     padding-left: 25px;
     padding-right: 25px;
+    margin-top: 10px;
 }
 
+/* Nút quay lại */
+.mt-5.text-center a.btn {
+    display: inline-block;
+    min-width: 160px;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
+    .bai-viet-container {
+        max-width: 100%;
+        padding: 0 10px;
+        margin: 30px auto 50px;
+    }
+
+    .noi-dung-bai-viet {
+        font-size: 1rem;
+    }
+
+    .noi-dung-bai-viet img {
+        margin: 15px auto;
+    }
+
     .comments-section {
         margin-top: 30px;
+        padding: 15px;
     }
-}
-
-.img-thumbnail {
-    border: none;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-}
-
-.xem-them h5 {
-    font-weight: bold;
-    margin-bottom: 1rem;
 }

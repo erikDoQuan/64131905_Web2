@@ -51,20 +51,20 @@
         <div class="">
             <div class="row row-cols-1 row-cols-md-3 g-4">
 
-                <div class="col" th:each="baiViet : ${baiVietPage.content}">
-                    <div class="card-custom shadow-sm h-100">
-                        <img th:if="${baiViet.hinhAnh != null and baiViet.hinhAnh != ''}"
-                             th:src="@{'/images/' + ${baiViet.hinhAnh}}"
-                             alt="Ảnh bài viết" class="card-img-top-custom">
-                        <div class="card-body-custom">
-                            <h5 class="card-title-custom" th:text="${baiViet.tieuDe}">Tiêu đề bài viết</h5>
-                            <p class="card-text-custom" th:text="${#strings.abbreviate(baiViet.noiDung, 150)}">
-                                Mô tả ngắn...
-                            </p>
-                            <a class="read-more-link" th:href="@{'/baiviet/' + ${baiViet.maBaiViet}}">Xem chi tiết</a>
-                        </div>
-                    </div>
-                </div>
+              <div class="col" th:each="baiViet : ${baiVietPage.content}">
+    <div class="card-custom shadow-sm h-100">
+        <img th:if="${baiViet.hinhAnh != null and baiViet.hinhAnh != ''}"
+             th:src="@{'/images/' + ${baiViet.hinhAnh}}"
+             alt="Ảnh bài viết" class="card-img-top-custom">
+        <div class="card-body-custom">
+            <h3 th:text="${baiViet.tieuDe}">Tiêu đề bài viết</h3>
+            <p th:text="${truncatedContentMap[baiViet.maBaiViet]}">Nội dung rút gọn</p>
+            <a th:href="@{'/baiviet/' + ${baiViet.maBaiViet}}">Xem chi tiết</a>
+
+        </div>
+    </div>
+</div>
+
             </div>
         </div>
 
