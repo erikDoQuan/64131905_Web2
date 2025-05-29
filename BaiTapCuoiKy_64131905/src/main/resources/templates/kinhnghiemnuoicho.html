@@ -34,21 +34,30 @@
 
     <!-- Danh sách bài viết -->
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-        <div class="col" th:each="baiViet : ${baiVietPage.content}">
-            <div class="card-custom shadow-sm">
-                <img th:if="${baiViet.hinhAnh != null and baiViet.hinhAnh != ''}"
-                     th:src="@{'/images/' + ${baiViet.hinhAnh}}"
-                     alt="Ảnh bài viết" class="card-img-top-custom">
-                <div class="card-body-custom">
-                    <h5 class="card-title-custom" th:text="${baiViet.tieuDe}">Tiêu đề bài viết</h5>
-                    <p class="card-text-custom" th:text="${#strings.abbreviate(baiViet.noiDung, 150)}">
-                        Mô tả ngắn...
-                    </p>
-                    <a class="read-more-link" th:href="@{'/baiviet/' + ${baiViet.maBaiViet}}">Xem chi tiết</a>
-                </div>
+    <div class="col" th:each="baiViet : ${baiVietPage.content}">
+        <div class="card-custom d-flex flex-column shadow-sm h-100">
+            <img th:if="${baiViet.hinhAnh != null and baiViet.hinhAnh != ''}"
+                 th:src="@{'/images/' + ${baiViet.hinhAnh}}"
+                 alt="Ảnh bài viết" class="card-img-top-custom">
+            
+            <div class="card-body-custom d-flex flex-column flex-grow-1">
+                <h5 class="card-title-custom" th:text="${baiViet.tieuDe}">Tiêu đề bài viết</h5>
+                
+                <!-- Nội dung rút gọn + đẩy nút xuống dưới -->
+                <p class="card-text-custom flex-grow-1" 
+                   th:text="${truncatedContentMap[baiViet.maBaiViet]}">
+                    Mô tả ngắn...
+                </p>
+
+                <!-- Nút xem chi tiết nằm bên phải, cách đáy -->
+               <div class="mt-auto text-end">
+                        <a class="btn btn-sm btn-outline-primary" th:href="@{'/baiviet/' + ${baiViet.maBaiViet}}">Xem chi tiết</a>
+                    </div>
             </div>
         </div>
     </div>
+</div>
+
 
     <!-- Phân trang -->
     <nav aria-label="Page navigation example" class="mt-4">

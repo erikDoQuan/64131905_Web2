@@ -27,25 +27,31 @@
 
 <!-- Main Content -->
 <div class="container mt-5">
-
-    <!-- Form tìm kiếm -->
-
+    <form method="get" th:action="@{/trangchu}" class="d-inline-block" style="max-width: 300px; width: 100%;">
+        <!-- form tìm kiếm nếu có -->
+    </form>
 
     <h2 class="mb-4 text-center">KINH NGHIỆM NUÔI MÈO</h2>
 
     <!-- Danh sách bài viết -->
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
         <div class="col" th:each="baiViet : ${baiVietPage.content}">
-            <div class="card-custom shadow-sm">
+            <div class="card-custom d-flex flex-column shadow-sm h-100">
                 <img th:if="${baiViet.hinhAnh != null and baiViet.hinhAnh != ''}"
                      th:src="@{'/images/' + ${baiViet.hinhAnh}}"
                      alt="Ảnh bài viết" class="card-img-top-custom">
-                <div class="card-body-custom">
+                
+                <div class="card-body-custom d-flex flex-column flex-grow-1">
                     <h5 class="card-title-custom" th:text="${baiViet.tieuDe}">Tiêu đề bài viết</h5>
-                    <p class="card-text-custom" th:text="${#strings.abbreviate(baiViet.noiDung, 150)}">
+
+                    <p class="card-text-custom flex-grow-1"
+                       th:text="${truncatedContentMap[baiViet.maBaiViet]}">
                         Mô tả ngắn...
                     </p>
-                    <a class="read-more-link" th:href="@{'/baiviet/' + ${baiViet.maBaiViet}}">Xem chi tiết</a>
+
+                    <div class="mt-auto text-end">
+                        <a class="btn btn-sm btn-outline-primary" th:href="@{'/baiviet/' + ${baiViet.maBaiViet}}">Xem chi tiết</a>
+                    </div>
                 </div>
             </div>
         </div>

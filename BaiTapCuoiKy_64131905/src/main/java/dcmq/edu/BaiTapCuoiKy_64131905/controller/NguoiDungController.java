@@ -37,7 +37,7 @@ public class NguoiDungController {
             if (nguoiDung.getRole() == 0) {
                 return "redirect:/quanlibaiviet";
             } else if (nguoiDung.getRole() == 1) {
-                return "redirect:/layoutUser";
+                return "redirect:/trangchu";
             } else {
                 model.addAttribute("loiDangNhap", "Role không hợp lệ");
                 return "dangnhap";

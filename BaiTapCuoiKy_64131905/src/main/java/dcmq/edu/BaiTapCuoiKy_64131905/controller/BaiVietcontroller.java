@@ -47,7 +47,6 @@ public class BaiVietcontroller {
         return "trangchu";
     }
 
-    // Kinh nghiệm nuôi chó
     @GetMapping("/kinhnghiemnuoicho")
     public String kinhNghiemNuoiCho(Model model,
                                     @RequestParam(defaultValue = "0") int page,
@@ -60,13 +59,16 @@ public class BaiVietcontroller {
                 ? baiVietService.getBaiVietTheoLoai("KNC", page, size)
                 : baiVietService.searchBaiVietTheoLoai(keyword, "KNC", page, size);
 
+        Map<String, String> truncatedContentMap = generateTruncatedContent(baiVietPage); // THÊM DÒNG NÀY
+
         model.addAttribute("baiVietPage", baiVietPage);
         model.addAttribute("currentPage", page);
         model.addAttribute("keyword", keyword);
+        model.addAttribute("truncatedContentMap", truncatedContentMap); 
+
         return "kinhnghiemnuoicho";
     }
 
-    // Kinh nghiệm nuôi mèo
     @GetMapping("/kinhnghiemnuoimeo")
     public String hienThiKinhNghiemMeo(Model model,
                                        @RequestParam(defaultValue = "0") int page,
@@ -79,13 +81,17 @@ public class BaiVietcontroller {
                 ? baiVietService.getBaiVietTheoLoai("KNM", page, size)
                 : baiVietService.searchBaiVietTheoLoai(keyword, "KNM", page, size);
 
+        Map<String, String> truncatedContentMap = generateTruncatedContent(baiVietPage); // thêm dòng này
+
         model.addAttribute("baiVietPage", baiVietPage);
         model.addAttribute("currentPage", page);
         model.addAttribute("keyword", keyword);
+        model.addAttribute("truncatedContentMap", truncatedContentMap); // thêm dòng này
+
         return "kinhnghiemnuoimeo";
     }
 
-    // Chăm sóc thú cưng
+
     @GetMapping("/chamsocthucung")
     public String hienThiChamSocThuCung(Model model,
                                         @RequestParam(defaultValue = "0") int page,
@@ -98,9 +104,13 @@ public class BaiVietcontroller {
                 ? baiVietService.getBaiVietTheoLoai("CSTC", page, size)
                 : baiVietService.searchBaiVietTheoLoai(keyword, "CSTC", page, size);
 
+        Map<String, String> truncatedContentMap = generateTruncatedContent(baiVietPage); // thêm dòng này
+
         model.addAttribute("baiVietPage", baiVietPage);
         model.addAttribute("currentPage", page);
         model.addAttribute("keyword", keyword);
+        model.addAttribute("truncatedContentMap", truncatedContentMap); // thêm dòng này
+
         return "chamsocthucung";
     }
 

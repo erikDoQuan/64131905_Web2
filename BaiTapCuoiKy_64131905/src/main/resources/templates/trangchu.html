@@ -52,23 +52,28 @@
             <div class="row row-cols-1 row-cols-md-3 g-4">
 
               <div class="col" th:each="baiViet : ${baiVietPage.content}">
-    <div class="card-custom shadow-sm h-100">
-        <img th:if="${baiViet.hinhAnh != null and baiViet.hinhAnh != ''}"
-             th:src="@{'/images/' + ${baiViet.hinhAnh}}"
-             alt="Ảnh bài viết" class="card-img-top-custom">
-        <div class="card-body-custom">
-            <h3 th:text="${baiViet.tieuDe}">Tiêu đề bài viết</h3>
-            <p th:text="${truncatedContentMap[baiViet.maBaiViet]}">Nội dung rút gọn</p>
-            <a th:href="@{'/baiviet/' + ${baiViet.maBaiViet}}">Xem chi tiết</a>
+<div class="card-custom d-flex flex-column shadow-sm h-100">
+    <img th:if="${baiViet.hinhAnh != null and baiViet.hinhAnh != ''}"
+         th:src="@{'/images/' + ${baiViet.hinhAnh}}"
+         alt="Ảnh bài viết" class="card-img-top-custom">
 
-        </div>
+    <div class="card-body-custom flex-grow-1 d-flex flex-column">
+        <h3 th:text="${baiViet.tieuDe}">Tiêu đề bài viết</h3>
+        <p class="flex-grow-1" th:text="${truncatedContentMap[baiViet.maBaiViet]}">Nội dung rút gọn</p>
+
+        <!-- Nút xem chi tiết căn phải và cách đáy -->
+        <div class="mt-auto text-end">
+                        <a class="btn btn-sm btn-outline-primary" th:href="@{'/baiviet/' + ${baiViet.maBaiViet}}">Xem chi tiết</a>
+                    </div>
     </div>
+</div>
+
+
 </div>
 
             </div>
         </div>
 
-        <!-- Bài viết liên quan -->
        
     </div>
 
