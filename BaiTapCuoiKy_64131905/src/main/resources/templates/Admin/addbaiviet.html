@@ -17,7 +17,9 @@
 <div class="container mt-5">
     <h2 class="mb-4">Thêm Bài Viết</h2>
 
-    <form th:action="@{/baiviet/luu}" th:object="${baiViet}" method="post" enctype="multipart/form-data">
+    <form th:action="@{/baiviet/luu}" th:object="${baiViet}" method="post" enctype="multipart/form-data"
+      class="needs-validation" novalidate>
+
         <!-- Tiêu đề -->
         <div class="mb-3">
             <label for="tieuDe" class="form-label">Tiêu Đề</label>
@@ -63,8 +65,42 @@
 <!-- Footer -->
 <div th:replace="Admin/LayoutAdmin :: pFooter"></div>
 
+
 <!-- Script Bootstrap -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Form validation Bootstrap
+        (() => {
+            'use strict';
+            const forms = document.querySelectorAll('.needs-validation');
+            Array.from(forms).forEach(form => {
+                form.addEventListener('submit', event => {
+                    if (!form.checkValidity()) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        })();
+
+        // CKEditor init
+        const noiDungField = document.querySelector('#noiDung');
+        if (noiDungField) {
+            ClassicEditor
+                .create(noiDungField)
+                .then(editor => {
+                    editor.ui.view.editable.element.style.height = '400px';
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+        }
+    });
+</script>
 
 </body>
 </html>

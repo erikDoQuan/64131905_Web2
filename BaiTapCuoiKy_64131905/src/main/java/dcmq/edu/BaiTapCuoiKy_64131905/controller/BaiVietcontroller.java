@@ -27,7 +27,7 @@ public class BaiVietcontroller {
 
     private final String imageDir = System.getProperty("user.dir") + "/src/main/resources/static/images/";
 
-    // Trang chủ
+ 
     @GetMapping({"/", "/trangchu"})
     public String trangChu(Model model,
                            @RequestParam(defaultValue = "0") int page,
@@ -59,7 +59,7 @@ public class BaiVietcontroller {
                 ? baiVietService.getBaiVietTheoLoai("KNC", page, size)
                 : baiVietService.searchBaiVietTheoLoai(keyword, "KNC", page, size);
 
-        Map<String, String> truncatedContentMap = generateTruncatedContent(baiVietPage); // THÊM DÒNG NÀY
+        Map<String, String> truncatedContentMap = generateTruncatedContent(baiVietPage);
 
         model.addAttribute("baiVietPage", baiVietPage);
         model.addAttribute("currentPage", page);
@@ -81,12 +81,12 @@ public class BaiVietcontroller {
                 ? baiVietService.getBaiVietTheoLoai("KNM", page, size)
                 : baiVietService.searchBaiVietTheoLoai(keyword, "KNM", page, size);
 
-        Map<String, String> truncatedContentMap = generateTruncatedContent(baiVietPage); // thêm dòng này
+        Map<String, String> truncatedContentMap = generateTruncatedContent(baiVietPage); 
 
         model.addAttribute("baiVietPage", baiVietPage);
         model.addAttribute("currentPage", page);
         model.addAttribute("keyword", keyword);
-        model.addAttribute("truncatedContentMap", truncatedContentMap); // thêm dòng này
+        model.addAttribute("truncatedContentMap", truncatedContentMap);
 
         return "kinhnghiemnuoimeo";
     }

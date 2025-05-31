@@ -36,7 +36,7 @@
             <div class="collapse navbar-collapse justify-content-end">
                 <ul class="navbar-nav">
     <li class="nav-item" th:if="${tenNguoiDung != null}">
-        <a class="nav-link text-white" href="#">[[${tenNguoiDung}]]</a>
+        <a class="nav-link text-white" href="#">Xin chào, [[${tenNguoiDung}]]</a>
     </li>
     <li class="nav-item" th:if="${tenNguoiDung != null}">
         <a class="nav-link text-white" th:href="@{/dangxuat}">Đăng Xuất</a>
@@ -50,6 +50,19 @@
         </div>
     </nav>
 </div>
+<section class="welcome-section text-center py-5 bg-light">
+    <div class="container">
+        <h1 class="display-4 text-petlove fw-bold">Chào mừng bạn đến với <span class="text-gradient">PETLOVE</span>!</h1>
+        <p class="lead mt-3">
+            Nơi chia sẻ kiến thức, kinh nghiệm và tình yêu thương dành cho thú cưng. 
+            Cùng nhau xây dựng một cộng đồng yêu thú cưng thật ý nghĩa!
+        </p>
+        <a href="#baiviet" class="btn btn-petlove mt-4 px-4 py-2">
+            Khám phá bài viết
+            <i class="bi bi-arrow-right-circle ms-2"></i>
+        </a>
+    </div>
+</section>
 
 <div style="background-color:#f1f1f1;">
     <img class="banner" src="/images/banner.jpg" alt="PetLove Banner" style="width: 100%; height: auto; max-height: 300px; object-fit: contain;">

@@ -12,6 +12,17 @@
     <nav class="navbar navbar-expand-lg bg-petlove navbar-dark">
         <div class="container-fluid">
             <a class="navbar-brand" th:href="@{/}">🐾 PetLove- Quản Lí</a>
+                    <ul class="colorful-list">
+            <li class="item dogs">
+                <a th:href="@{/quanlibaiviet}" class="nav-link">Quản lý bài viết</a>
+            </li>
+            <li class="item cats">
+                <a th:href="@{/quanlinguoidung}" class="nav-link">Quản lý nhân viên</a>
+            </li>
+            <li class="item diet">
+                <a th:href="@{/quanlibinhluan}" class="nav-link">Xem đánh giá</a>
+            </li>
+        </ul>
             <div class="collapse navbar-collapse justify-content-end">
                 <ul class="navbar-nav">
                     <li class="nav-item" th:if="${tenNguoiDung != null}">
@@ -36,17 +47,7 @@
 <!-- Sidebar -->
 <div th:fragment="pSidebar">
     <nav>
-        <ul class="colorful-list">
-            <li class="item dogs">
-                <a th:href="@{/quanlibaiviet}" class="nav-link">Quản lý bài viết</a>
-            </li>
-            <li class="item cats">
-                <a th:href="@{/quanlinguoidung}" class="nav-link">Quản lý nhân viên</a>
-            </li>
-            <li class="item diet">
-                <a th:href="@{/quanlibinhluan}" class="nav-link">Xem đánh giá</a>
-            </li>
-        </ul>
+
     </nav>
 </div>
 

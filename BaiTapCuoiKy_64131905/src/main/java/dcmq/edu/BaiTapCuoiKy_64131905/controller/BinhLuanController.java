@@ -24,7 +24,7 @@ public class BinhLuanController {
     @Autowired
     private BaiVietService baiVietService;
 
-    // Hiển thị chi tiết bài viết cùng bình luận (không phân trang)
+
     @GetMapping("/baiviet/{maBaiViet}")
     public String chiTietBaiViet(@PathVariable String maBaiViet, Model model) {
         BaiViet baiViet = baiVietService.layBaiVietTheoMa(maBaiViet);
@@ -66,7 +66,7 @@ public class BinhLuanController {
         return "redirect:/baiviet/" + maBaiViet;
     }
 
-    // Quản lý bình luận (phân trang & tìm kiếm)
+
     @GetMapping("/quanlibinhluan")
     public String quanLyBinhLuan(
             @RequestParam(defaultValue = "0") int page,
