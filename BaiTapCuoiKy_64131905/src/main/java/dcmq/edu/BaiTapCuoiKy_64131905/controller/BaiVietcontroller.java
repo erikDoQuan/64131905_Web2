@@ -147,24 +147,24 @@ public class BaiVietcontroller {
                               @RequestParam("hinhAnhMoi") MultipartFile hinhAnhMoi,
                               Model model) {
         try {
-            // Sinh maBaiViet nếu chưa có
+          
             if (baiViet.getMaBaiViet() == null || baiViet.getMaBaiViet().isEmpty()) {
                 baiViet.setMaBaiViet(UUID.randomUUID().toString().substring(0, 10));
             }
 
-            // Xử lý ảnh
+           
             if (!hinhAnhMoi.isEmpty()) {
                 String tenFile = luuFileAnh(hinhAnhMoi);
                 if (tenFile != null) {
                     baiViet.setHinhAnh(tenFile);
                 } else {
-                    baiViet.setHinhAnh("default.jpg"); // Ảnh mặc định nếu lưu ảnh thất bại
+                    baiViet.setHinhAnh("default.jpg"); 
                 }
             } else {
-                baiViet.setHinhAnh("default.jpg"); // Ảnh mặc định nếu không upload
+                baiViet.setHinhAnh("default.jpg"); 
             }
 
-            // Lưu bài viết
+          
             baiVietService.luuBaiViet(baiViet);
             return "redirect:/quanlibaiviet";
         } catch (Exception e) {
@@ -172,17 +172,17 @@ public class BaiVietcontroller {
             model.addAttribute("error", "Lỗi khi lưu bài viết: " + e.getMessage());
             model.addAttribute("baiViet", baiViet);
             model.addAttribute("danhSachLoai", baiVietService.getAllLoaiBaiViet());
-            return "Admin/addbaiviet"; // Trở lại form với thông báo lỗi
+            return "Admin/addbaiviet"; 
         }
     }
 
-    // Hiển thị form sửa
+  
     @GetMapping("/baiviet/sua/{maBaiViet}")
     public String hienThiFormSua(@PathVariable String maBaiViet, Model model) {
         BaiViet baiViet = baiVietService.layBaiVietTheoMa(maBaiViet);
         if (baiViet == null) return "redirect:/quanlibaiviet";
 
-        // Đường dẫn ảnh luôn là /images/{tenFile}
+      
         String duongDanAnh = baiViet.getHinhAnh() != null && !baiViet.getHinhAnh().isEmpty()
                 ? "/images/" + baiViet.getHinhAnh()
                 : "/images/default.jpg";
